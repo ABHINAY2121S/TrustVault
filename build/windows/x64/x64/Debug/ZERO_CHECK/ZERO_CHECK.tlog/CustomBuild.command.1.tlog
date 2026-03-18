@@ -1,0 +1,10 @@
+^E:\TRUSTVAULT\BUILD\WINDOWS\X64\CMAKEFILES\0A36FBAAE16201A2FBE6E0C00600E9A2\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/trustVault/windows -BE:/trustVault/build/windows/x64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/trustVault/build/windows/x64/trustvault.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
