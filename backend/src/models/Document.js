@@ -18,13 +18,23 @@ const documentSchema = new mongoose.Schema({
     type: String, // SHA-256 hash of the file
     required: true,
   },
-  isVerified: {
-    type: Boolean,
-    default: false,
+  verificationStatus: {
+    type: String,
+    enum: ['unverified', 'partially_verified', 'verified'],
+    default: 'unverified',
   },
   issuerId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Issuer',
+  },
+  folderId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Folder',
+    default: null,
+  },
+  ocrText: {
+    type: String, // Raw text extracted by OCR/AI vision
+    default: '',
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,

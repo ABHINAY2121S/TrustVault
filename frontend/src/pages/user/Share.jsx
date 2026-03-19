@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Share2, QRCode as QRIcon, Copy, CheckCircle } from 'lucide-react';
+import { Share2, QrCode, Copy, CheckCircle } from 'lucide-react';
 import api from '../../api';
 
 const Share = ({ documents }) => {
@@ -10,7 +10,7 @@ const Share = ({ documents }) => {
   const [copied, setCopied] = useState(false);
 
   // Filter only verified docs to share
-  const verifiedDocs = documents.filter(doc => doc.isVerified);
+  const verifiedDocs = documents.filter(doc => doc.verificationStatus === 'verified');
 
   const generateShare = async () => {
     if (!selectedDoc) return;
@@ -110,7 +110,7 @@ const Share = ({ documents }) => {
                   <img src={qrCode} alt="Share QR" className="w-48 h-48" />
                 </div>
                 <p className="text-xs font-medium text-slate-500 uppercase tracking-widest flex items-center">
-                  <QRIcon className="w-3 h-3 mr-1" />
+                  <QrCode className="w-3 h-3 mr-1" />
                   Scan to Verify
                 </p>
               </div>

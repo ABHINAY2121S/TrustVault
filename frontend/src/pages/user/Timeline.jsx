@@ -19,7 +19,7 @@ const Timeline = ({ documents }) => {
         {sortedDocs.map((doc, index) => (
           <div key={doc._id} className="relative pl-8">
             <span className="absolute -left-[11px] top-2 bg-slate-950 p-0.5">
-              <CircleDot className={`w-5 h-5 ${doc.isVerified ? 'text-emerald-500' : 'text-amber-500'}`} />
+              <CircleDot className={`w-5 h-5 ${doc.verificationStatus === 'verified' ? 'text-emerald-500' : doc.verificationStatus === 'partially_verified' ? 'text-amber-500' : 'text-slate-500'}`} />
             </span>
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
               <div className="flex justify-between items-start mb-2">

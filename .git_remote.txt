@@ -1,0 +1,2 @@
+origin	https://github.com/ABHINAY2121S/TrustVault.git (fetch)
+origin	https://github.com/ABHINAY2121S/TrustVault.git (push)

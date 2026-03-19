@@ -16,6 +16,27 @@ node_modules/
 .env.test.local
 .env.production.local
 
+# Flutter / Dart
+.dart_tool/
+build/
+*.lock
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# Uploads (VERY IMPORTANT)
+backend/uploads/
+
+# APK / build outputs
+*.apk
+*.aab
+
 # Build output
 frontend/dist/
 frontend/build/

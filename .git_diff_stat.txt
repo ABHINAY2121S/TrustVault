@@ -1,0 +1,1332 @@
+ .dart_tool/dartpad/web_plugin_registrant.dart      |   16 +-
+ .../5cfa48f310cf6546ded306fb5e4de1e9/.filecache    |    2 +-
+ .../5cfa48f310cf6546ded306fb5e4de1e9/app.dill      |  Bin 41165872 -> 56785336 bytes
+ .../debug_android_application.stamp                |    2 +-
+ .../flutter_assets.d                               |    2 +-
+ .../gen_dart_plugin_registrant.stamp               |    2 +-
+ .../kernel_snapshot_program.d                      |    2 +-
+ .../kernel_snapshot_program.stamp                  |    2 +-
+ .../flutter_build/dart_plugin_registrant.dart      |  302 +
+ .dart_tool/package_config.json                     |  324 +
+ .dart_tool/package_graph.json                      |  590 +-
+ .flutter-plugins-dependencies                      |    1 +
+ android/app/src/main/AndroidManifest.xml           |   16 +
+ backend/package-lock.json                          |    5 +-
+ backend/src/controllers/accessController.js        |  130 +
+ backend/src/controllers/documentController.js      |  160 +-
+ backend/src/controllers/folderController.js        |  120 +
+ backend/src/controllers/issuerController.js        |   91 +-
+ backend/src/controllers/verifyController.js        |   87 +-
+ backend/src/models/AccessRequest.js                |   47 +
+ backend/src/models/Document.js                     |   16 +-
+ backend/src/models/Folder.js                       |   28 +
+ backend/src/routes/accessRoutes.js                 |   21 +
+ backend/src/routes/documentRoutes.js               |   22 +-
+ backend/src/routes/folderRoutes.js                 |   28 +
+ backend/src/routes/issuerRoutes.js                 |   16 +-
+ backend/src/server.js                              |   16 +-
+ backend/uploads/.gitkeep                           |    1 +
+ ...Gemini_Generated_Image_oi86i1oi86i1oi86_(2).png |  Bin 0 -> 5774325 bytes
+ ...964_Gemini_Generated_Image_khsj70khsj70khsj.png |  Bin 0 -> 6029074 bytes
+ .../2x3n1g3r/arm64-v8a/configure_fingerprint.bin   |   24 +-
+ .../.cmake/api/v1/query/client-agp/cache-v2        |    0
+ .../.cmake/api/v1/query/client-agp/cmakeFiles-v1   |    0
+ .../.cmake/api/v1/query/client-agp/codemodel-v2    |    0
+ .../v1/reply/cache-v2-6c7eaec4f8e872a9bd52.json    | 1367 ++++
+ .../reply/cmakeFiles-v1-62af32ab39dd591e7364.json  |  803 +++
+ .../reply/codemodel-v2-483e31c06b625fdf3f8c.json   |   43 +
+ .../directory-.-debug-d0094a50bb2071803777.json    |   14 +
+ .../v1/reply/index-2026-03-19T08-10-31-0169.json   |   92 +
+ .../.cxx/debug/2x3n1g3r/armeabi-v7a/CMakeCache.txt |  401 ++
+ .../3.22.1-g37088a8-dirty/CMakeCCompiler.cmake     |   72 +
+ .../3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake   |   83 +
+ .../CMakeDetermineCompilerABI_C.bin                |  Bin 0 -> 6012 bytes
+ .../CMakeDetermineCompilerABI_CXX.bin              |  Bin 0 -> 6156 bytes
+ .../3.22.1-g37088a8-dirty/CMakeSystem.cmake        |   15 +
+ .../CompilerIdC/CMakeCCompilerId.c                 |  803 +++
+ .../CompilerIdC/CMakeCCompilerId.o                 |  Bin 0 -> 4064 bytes
+ .../CompilerIdCXX/CMakeCXXCompilerId.cpp           |  791 +++
+ .../CompilerIdCXX/CMakeCXXCompilerId.o             |  Bin 0 -> 4100 bytes
+ .../armeabi-v7a/CMakeFiles/TargetDirectories.txt   |    2 +
+ .../armeabi-v7a/CMakeFiles/cmake.check_cache       |    1 +
+ .../2x3n1g3r/armeabi-v7a/CMakeFiles/rules.ninja    |   45 +
+ .../armeabi-v7a/additional_project_files.txt       |    0
+ .../2x3n1g3r/armeabi-v7a/android_gradle_build.json |   28 +
+ .../armeabi-v7a/android_gradle_build_mini.json     |   20 +
+ build/.cxx/debug/2x3n1g3r/armeabi-v7a/build.ninja  |  111 +
+ .../2x3n1g3r/armeabi-v7a/build_file_index.txt      |    1 +
+ .../debug/2x3n1g3r/armeabi-v7a/cmake_install.cmake |   54 +
+ .../2x3n1g3r/armeabi-v7a/configure_fingerprint.bin |   28 +
+ .../armeabi-v7a/metadata_generation_command.txt    |   20 +
+ .../debug/2x3n1g3r/armeabi-v7a/prefab_config.json  |    4 +
+ .../2x3n1g3r/armeabi-v7a/symbol_folder_index.txt   |    1 +
+ .../x86_64/.cmake/api/v1/query/client-agp/cache-v2 |    0
+ .../.cmake/api/v1/query/client-agp/cmakeFiles-v1   |    0
+ .../.cmake/api/v1/query/client-agp/codemodel-v2    |    0
+ .../v1/reply/cache-v2-1a39648bd089934f1198.json    | 1367 ++++
+ .../reply/cmakeFiles-v1-b83a398e405962225f66.json  |  803 +++
+ .../reply/codemodel-v2-efbd1e5dd67ebeeff50f.json   |   43 +
+ .../directory-.-debug-d0094a50bb2071803777.json    |   14 +
+ .../v1/reply/index-2026-03-19T08-10-35-0477.json   |   92 +
+ build/.cxx/debug/2x3n1g3r/x86_64/CMakeCache.txt    |  401 ++
+ .../3.22.1-g37088a8-dirty/CMakeCCompiler.cmake     |   72 +
+ .../3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake   |   83 +
+ .../CMakeDetermineCompilerABI_C.bin                |  Bin 0 -> 7272 bytes
+ .../CMakeDetermineCompilerABI_CXX.bin              |  Bin 0 -> 7416 bytes
+ .../3.22.1-g37088a8-dirty/CMakeSystem.cmake        |   15 +
+ .../CompilerIdC/CMakeCCompilerId.c                 |  803 +++
+ .../CompilerIdC/CMakeCCompilerId.o                 |  Bin 0 -> 5344 bytes
+ .../CompilerIdCXX/CMakeCXXCompilerId.cpp           |  791 +++
+ .../CompilerIdCXX/CMakeCXXCompilerId.o             |  Bin 0 -> 5392 bytes
+ .../x86_64/CMakeFiles/TargetDirectories.txt        |    2 +
+ .../2x3n1g3r/x86_64/CMakeFiles/cmake.check_cache   |    1 +
+ .../debug/2x3n1g3r/x86_64/CMakeFiles/rules.ninja   |   45 +
+ .../2x3n1g3r/x86_64/additional_project_files.txt   |    0
+ .../2x3n1g3r/x86_64/android_gradle_build.json      |   28 +
+ .../2x3n1g3r/x86_64/android_gradle_build_mini.json |   20 +
+ build/.cxx/debug/2x3n1g3r/x86_64/build.ninja       |  111 +
+ .../debug/2x3n1g3r/x86_64/build_file_index.txt     |    1 +
+ .../.cxx/debug/2x3n1g3r/x86_64/cmake_install.cmake |   54 +
+ .../2x3n1g3r/x86_64/configure_fingerprint.bin      |   28 +
+ .../x86_64/metadata_generation_command.txt         |   20 +
+ .../.cxx/debug/2x3n1g3r/x86_64/prefab_config.json  |    4 +
+ .../debug/2x3n1g3r/x86_64/symbol_folder_index.txt  |    1 +
+ .../createDebugApkListingFileRedirect/redirect.txt |    2 +
+ .../writeDebugAppMetadata/app-metadata.properties  |    2 +
+ .../mergeDebugAssets/flutter_assets/NOTICES.Z      |  Bin 83876 -> 86826 bytes
+ .../flutter_assets/kernel_blob.bin                 |  Bin 41165872 -> 56785336 bytes
+ .../debug/processDebugResources/R.jar              |  Bin 0 -> 424659 bytes
+ .../out/assets/flutter_assets/NOTICES.Z.jar        |  Bin 80312 -> 82962 bytes
+ .../out/assets/flutter_assets/kernel_blob.bin.jar  |  Bin 13888544 -> 18389802 bytes
+ .../out/currentProject/dirs_bucket_0/graph.bin     |  Bin 0 -> 235 bytes
+ .../out/currentProject/dirs_bucket_1/graph.bin     |  Bin 0 -> 235 bytes
+ .../out/currentProject/dirs_bucket_2/graph.bin     |  Bin 0 -> 235 bytes
+ .../out/currentProject/dirs_bucket_3/graph.bin     |  Bin 0 -> 235 bytes
+ .../out/currentProject/dirs_bucket_4/graph.bin     |  Bin 0 -> 235 bytes
+ .../out/currentProject/dirs_bucket_5/graph.bin     |  Bin 0 -> 235 bytes
+ .../graph.bin                                      |  Bin 0 -> 235 bytes
+ .../graph.bin                                      |  Bin 0 -> 235 bytes
+ .../graph.bin                                      |  Bin 0 -> 235 bytes
+ .../graph.bin                                      |  Bin 0 -> 235 bytes
+ .../graph.bin                                      |  Bin 0 -> 235 bytes
+ .../graph.bin                                      |  Bin 0 -> 235 bytes
+ .../dex/debug/mergeExtDexDebug/classes.dex         |  Bin 0 -> 11267816 bytes
+ .../dex/debug/mergeExtDexDebug/classes2.dex        |  Bin 0 -> 448336 bytes
+ .../dex/debug/mergeLibDexDebug/1/classes.dex       |  Bin 0 -> 34776 bytes
+ .../dex/debug/mergeLibDexDebug/12/classes.dex      |  Bin 0 -> 25572 bytes
+ .../dex/debug/mergeLibDexDebug/15/classes.dex      |  Bin 0 -> 15032 bytes
+ .../dex/debug/mergeLibDexDebug/4/classes.dex       |  Bin 0 -> 1068 bytes
+ .../dex/debug/mergeLibDexDebug/5/classes.dex       |  Bin 0 -> 184160 bytes
+ .../dex/debug/mergeProjectDexDebug/0/classes.dex   |  Bin 0 -> 212308 bytes
+ .../dex/debug/mergeProjectDexDebug/1/classes.dex   |  Bin 0 -> 2748 bytes
+ .../dex/debug/mergeProjectDexDebug/4/classes.dex   |  Bin 0 -> 892 bytes
+ .../debug/dexBuilderDebug/out                      |  Bin 0 -> 385 bytes
+ .../debug/dexBuilderDebug/out                      |    1 +
+ .../flutter/debug/flutter_assets/NOTICES.Z         |  Bin 83876 -> 86826 bytes
+ .../flutter/debug/flutter_assets/kernel_blob.bin   |  Bin 41165872 -> 56785336 bytes
+ .../intermediates/flutter/debug/flutter_build.d    |    2 +-
+ .../incremental/debug-mergeJavaRes/merge-state     |  Bin 0 -> 16581 bytes
+ .../zip-cache/+BS0s9Rd3vPLIKt163ibcBcuoLM=         |  Bin 0 -> 1904 bytes
+ .../zip-cache/+MZzxP18sJwVQZ8MsHIiEnrDBZ4=         |  Bin 0 -> 16102 bytes
+ .../zip-cache/+THZx3SHN9BWZuFGQVPwXj3dR_w=         |  Bin 0 -> 1719 bytes
+ .../zip-cache/+ZDMPI7XXwAQcImBPa0jH1g77hg=         |  Bin 0 -> 1548432 bytes
+ .../zip-cache/1MPrLYfrd_A08skdVFLmrbzRfSU=         |  Bin 0 -> 792 bytes
+ .../zip-cache/1NQH_FSjMd3wriPi5sjbTxJ9ngQ=         |  Bin 0 -> 1407 bytes
+ .../zip-cache/3b5NxmN8uSdjOBul+UrxM9I41_c=         |  Bin 0 -> 2360 bytes
+ .../zip-cache/42tHrx+_Ju+WXN4XKo993T9Re+8=         |  Bin 0 -> 6788 bytes
+ .../zip-cache/5KjYo+UEc9wGHX4OInA2wjL14_k=         |  Bin 0 -> 25414 bytes
+ .../zip-cache/5pA2tej50P0aErgQGJOmXbX_wFU=         |  Bin 0 -> 1690048 bytes
+ .../zip-cache/5si0h43Jw1HXAROlot3ylurIq7E=         |  Bin 0 -> 1697 bytes
+ .../zip-cache/6028I5RsWgAjNODPf_tjJFAbmro=         |  Bin 0 -> 1743 bytes
+ .../zip-cache/6AfrsLIGpfqa+SRLoRuPF1uDjwA=         |  Bin 0 -> 173358 bytes
+ .../zip-cache/70tKunKhfj+i6usa0OuxLRfwd9E=         |  Bin 0 -> 29371 bytes
+ .../zip-cache/70vQ2Ccr40vxSLxkUVrw_HvR4VQ=         |  Bin 0 -> 2293 bytes
+ .../zip-cache/7C5i2B8J31+sytzCR6IRatOakPY=         |  Bin 0 -> 248 bytes
+ .../zip-cache/7PuUgaR1P8Druz+w4+mQbDlCuig=         |  Bin 0 -> 261 bytes
+ .../zip-cache/7kaQL_Nl19tVvF4QNgp7NguO85I=         |  Bin 0 -> 13843 bytes
+ .../zip-cache/9OqtnSP4u_50CoKWzGiRJkKhJEE=         |  Bin 0 -> 1777 bytes
+ .../zip-cache/AJAVuce1mtTYvkUVQuCqVnC1ssA=         |  Bin 0 -> 30250 bytes
+ .../zip-cache/AY+G8XyfsimTmF3QdqHtEqc9hqM=         |  Bin 0 -> 42953 bytes
+ .../zip-cache/AZnMABZBPkCm1h6gthYePKblHkU=         |  Bin 0 -> 37109 bytes
+ .../zip-cache/Bkaqr2Id3afne1swYtaC7hfWB3Q=         |  Bin 0 -> 3149 bytes
+ .../zip-cache/BvjACTZUWkvQh4Xrcmw+u_V+k20=         |  Bin 0 -> 7101 bytes
+ .../zip-cache/CDRjxdVb3rcC+_Cni_4qSxfjUrs=         |  Bin 0 -> 89202 bytes
+ .../zip-cache/CxukMhu2iRjSoCi1jVQXadK_Icg=         |  Bin 0 -> 1497013 bytes
+ .../zip-cache/Djyz7L5X_hNVbn26MPje9ynxpN8=         |  Bin 0 -> 158486389 bytes
+ .../zip-cache/E_GI16MDe+gLmI0YvKYf+ittw4Y=         |  Bin 0 -> 2201 bytes
+ .../zip-cache/F0GrmLmJ8T53qxWoE411nIqBOrA=         |  Bin 0 -> 1395 bytes
+ .../zip-cache/FNw9OaF4l4WyJdznvGRdfIB4nUQ=         |  Bin 0 -> 14561 bytes
+ .../zip-cache/GAoAe8APhv8hqARTkC36H99cryY=         |  Bin 0 -> 47517 bytes
+ .../zip-cache/Grvq6UIIBGED_aUvsPhJiGzjObk=         |  Bin 0 -> 2142 bytes
+ .../zip-cache/H3CZYKVDCfqxeN+4HX4kG+9Ujm8=         |  Bin 0 -> 41683 bytes
+ .../zip-cache/HJaRSfc8ri0eiyBLGMsbH991w8Q=         |  Bin 0 -> 969 bytes
+ .../zip-cache/HyLgmAkAzA7hUVIMetNWuhlPuFE=         |  Bin 0 -> 356 bytes
+ .../zip-cache/I3tfVaCtTFqjhfAAdYpPcyYuoto=         |  Bin 0 -> 2628 bytes
+ .../zip-cache/I4SJNv+XA607BF8pBFrMm1FCDuQ=         |  Bin 0 -> 115 bytes
+ .../zip-cache/I67FeRK7Iv27akJlbwYMV+194JE=         |  Bin 0 -> 6304 bytes
+ .../zip-cache/I9X6ztAPl04vbZAaP4SwShp9V4Y=         |  Bin 0 -> 675 bytes
+ .../zip-cache/JqqRWzjWZLKSY6pz8MXNHJ0t7dg=         |  Bin 0 -> 667 bytes
+ .../zip-cache/KfiydZWiXw+oQTulrMAso1lLwtc=         |  Bin 0 -> 578 bytes
+ .../zip-cache/Kgw_hCnbRUTnI4lTCZk6PFbCi48=         |  Bin 0 -> 4208 bytes
+ .../zip-cache/MSDvuAabcA0jw4hcDAIZBm0_dd0=         |  Bin 0 -> 1261352 bytes
+ .../zip-cache/N5SuMz7WwlMd_kITPvb7RXQB2Vs=         |  Bin 0 -> 2129 bytes
+ .../zip-cache/O5z8sXDm8MAhK0d5XS0B_q0DMbk=         |  Bin 0 -> 1626 bytes
+ .../zip-cache/RlE3H8N6N0kgFEIBnWJYC3r45rk=         |  Bin 0 -> 1046 bytes
+ .../zip-cache/UgC4EygPR_l4hWumbbeN6BiHYbQ=         |  Bin 0 -> 56126 bytes
+ .../zip-cache/UpNtDRzHeoufF+pyAfncMeK84S0=         |  Bin 0 -> 824 bytes
+ .../zip-cache/VRDeAWpm3TOiUTymuP3+3M2g7oQ=         |  Bin 0 -> 8592 bytes
+ .../zip-cache/VberR1f0ZujU6nsOmzdWRoWY77M=         |  Bin 0 -> 35177 bytes
+ .../zip-cache/Y8ANaAye9LkcElGRJHyoakGOv3M=         |  Bin 0 -> 2854 bytes
+ .../zip-cache/YN5F1U8juoDSElS0YOitTbnpQyo=         |  Bin 0 -> 4175 bytes
+ .../zip-cache/Zd5YLVd0cvT3CSX2ntR_q5+zLbE=         |  Bin 0 -> 626 bytes
+ .../zip-cache/ZzNvzs9+7ss6nFdv3+xFxuarJzY=         |  Bin 0 -> 12366 bytes
+ .../zip-cache/_qRPSuUtceuaCxItI60pPRby8LU=         |  Bin 0 -> 62576 bytes
+ .../zip-cache/a+V4EpGJBJ2lOSQpXmRd8lFM+uI=         |  Bin 0 -> 3085 bytes
+ .../zip-cache/axh+PzmLSe3RPAF+KGeH_rio4Ek=         |  Bin 0 -> 13722 bytes
+ .../zip-cache/bAlOux+1CGi4ZP1Q_09Y1O3yuPE=         |  Bin 0 -> 2319 bytes
+ .../zip-cache/bBYjiaxbU0F90O6SJ0syvEMijvY=         |  Bin 0 -> 524 bytes
+ .../zip-cache/beSCGQYEdOJWizwRBhrYc7DQ46g=         |  Bin 0 -> 1575 bytes
+ .../zip-cache/cJzoQ3yALTz_c7TpcRaz4iIaA+k=         |  Bin 0 -> 3985 bytes
+ .../zip-cache/cPHc0wl34momsagzgiaKHPFNFN0=         |  Bin 0 -> 356 bytes
+ .../zip-cache/eocFodUQrU5yqfyPQ8K+hP8SGwg=         |  Bin 0 -> 1602 bytes
+ .../zip-cache/ez4SlTNiH2CEhFSLIbLNE_QJW9Q=         |  Bin 0 -> 1414 bytes
+ .../zip-cache/f2GFaTROzcPgqwGyZm3Ed5Tf73M=         |  Bin 0 -> 1877 bytes
+ .../zip-cache/fvCrR2bRb8xat3Jtcn9_Rk3MlEY=         |  Bin 0 -> 1036 bytes
+ .../zip-cache/gG9k8ElNgUH7NS6CrOh663SGHz0=         |  Bin 0 -> 1100 bytes
+ .../zip-cache/hIKNUQddq6kDuDKs8nwGBEWlF+w=         |  Bin 0 -> 13556 bytes
+ .../zip-cache/iPe2ZpcDp3jQYiagFcE6lJZ_6ko=         |  Bin 0 -> 1024 bytes
+ .../zip-cache/ilbiLxaScN1CO2XtkdsbbqVpNDs=         |  Bin 0 -> 1019 bytes
+ .../zip-cache/jW9k85rc47m0BbfCWvKxmKerkIg=         |  Bin 0 -> 25987 bytes
+ .../zip-cache/l6AA65qWYE8M9YAb+cwsZ1uocjY=         |  Bin 0 -> 188652 bytes
+ .../zip-cache/lCHlkfifWEHJBmKFGtuOpRhJhVE=         |  Bin 0 -> 2565 bytes
+ .../zip-cache/lT3GHdjwxq10bxzzt0sVmLtX5t0=         |  Bin 0 -> 1435 bytes
+ .../zip-cache/mrjg8J_uyFoQM+uIoTQ7Nu_Uv8w=         |  Bin 0 -> 464 bytes
+ .../zip-cache/np2PmUfnfVNrpRT8_IT0J6XYmkI=         |  Bin 0 -> 2928 bytes
+ .../zip-cache/o5avR9SauvTQBPPvy+p07EHoTy0=         |  Bin 0 -> 2720 bytes
+ .../zip-cache/oGF8b3vYc5XC7PvYNvZ5J+f7Ucs=         |  Bin 0 -> 10941 bytes
+ .../zip-cache/phzRXjSUYB4SnKd4FB2gmOeTnoA=         |  Bin 0 -> 20637 bytes
+ .../zip-cache/pwTlpdzLEHLSX7cEWF332yAaXOw=         |  Bin 0 -> 867 bytes
+ .../zip-cache/q1IqttbLsn+CTKFgkQ7baYyyX_0=         |  Bin 0 -> 1614 bytes
+ .../zip-cache/qBGlzb4TLZLKtxuG0oDF+g6fgZg=         |  Bin 0 -> 901 bytes
+ .../zip-cache/sL3dG9wSAACjPAnyjG6QaEp81JI=         |  Bin 0 -> 963 bytes
+ .../zip-cache/svrW13JfJkOyBN09wsXaqRicdiU=         |  Bin 0 -> 2524 bytes
+ .../zip-cache/tF6V4EZmboYiOOWSw_xzN_G+sKc=         |  Bin 0 -> 19915 bytes
+ .../zip-cache/twEClX4TVikvSRtjfrlDgb5e1IY=         |  Bin 0 -> 143 bytes
+ .../zip-cache/u5fXT4US4rnUO6VPUbR835oIFw4=         |  Bin 0 -> 99267 bytes
+ .../zip-cache/uhqXv6OCwGdh+_TzZ_+XBZnIuZU=         |  Bin 0 -> 3528 bytes
+ .../zip-cache/xGZUY0gS5rfLjVgpls+Dauhpw80=         |  Bin 0 -> 2796 bytes
+ .../zip-cache/yPiv7qGSeiiK69KHET42z4Qn4CE=         |  Bin 0 -> 1181 bytes
+ .../zip-cache/z9phtwwtc+hXkyfSDG26P013iD0=         |  Bin 0 -> 33627 bytes
+ .../zip-cache/zArzPfywZuxygdlq3FGBW6QOsRc=         |  Bin 0 -> 143 bytes
+ .../zip-cache/zVK9za1MKystMGvmjHTKPfhgJbY=         |  Bin 0 -> 21106 bytes
+ .../zip-cache/zn20WH6kwCpz2K4CFVc8pFRoGDA=         |  Bin 0 -> 3919 bytes
+ .../compile-file-map.properties                    |   14 +-
+ .../merged.dir/values-af/values-af.xml             |   41 +-
+ .../merged.dir/values-am/values-am.xml             |   41 +-
+ .../merged.dir/values-ar/values-ar.xml             |   41 +-
+ .../merged.dir/values-as/values-as.xml             |   41 +-
+ .../merged.dir/values-az/values-az.xml             |   41 +-
+ .../values-b+sr+Latn/values-b+sr+Latn.xml          |   41 +-
+ .../merged.dir/values-be/values-be.xml             |   41 +-
+ .../merged.dir/values-bg/values-bg.xml             |   41 +-
+ .../merged.dir/values-bn/values-bn.xml             |   41 +-
+ .../merged.dir/values-bs/values-bs.xml             |   41 +-
+ .../merged.dir/values-ca/values-ca.xml             |   41 +-
+ .../merged.dir/values-cs/values-cs.xml             |   41 +-
+ .../merged.dir/values-da/values-da.xml             |   41 +-
+ .../merged.dir/values-de/values-de.xml             |   41 +-
+ .../merged.dir/values-el/values-el.xml             |   41 +-
+ .../merged.dir/values-en-rAU/values-en-rAU.xml     |   41 +-
+ .../merged.dir/values-en-rCA/values-en-rCA.xml     |   41 +-
+ .../merged.dir/values-en-rGB/values-en-rGB.xml     |   41 +-
+ .../merged.dir/values-en-rIN/values-en-rIN.xml     |   41 +-
+ .../merged.dir/values-en-rXC/values-en-rXC.xml     |   41 +-
+ .../merged.dir/values-es-rUS/values-es-rUS.xml     |   41 +-
+ .../merged.dir/values-es/values-es.xml             |   41 +-
+ .../merged.dir/values-et/values-et.xml             |   41 +-
+ .../merged.dir/values-eu/values-eu.xml             |   41 +-
+ .../merged.dir/values-fa/values-fa.xml             |   41 +-
+ .../merged.dir/values-fi/values-fi.xml             |   41 +-
+ .../merged.dir/values-fr-rCA/values-fr-rCA.xml     |   41 +-
+ .../merged.dir/values-fr/values-fr.xml             |   41 +-
+ .../merged.dir/values-gl/values-gl.xml             |   41 +-
+ .../merged.dir/values-gu/values-gu.xml             |   43 +-
+ .../values-h720dp-v13/values-h720dp-v13.xml        |    4 +
+ .../merged.dir/values-hdpi-v4/values-hdpi-v4.xml   |    8 +
+ .../merged.dir/values-hi/values-hi.xml             |   41 +-
+ .../merged.dir/values-hr/values-hr.xml             |   41 +-
+ .../merged.dir/values-hu/values-hu.xml             |   41 +-
+ .../merged.dir/values-hy/values-hy.xml             |   41 +-
+ .../merged.dir/values-in/values-in.xml             |   41 +-
+ .../merged.dir/values-is/values-is.xml             |   41 +-
+ .../merged.dir/values-it/values-it.xml             |   41 +-
+ .../merged.dir/values-iw/values-iw.xml             |   41 +-
+ .../merged.dir/values-ja/values-ja.xml             |   41 +-
+ .../merged.dir/values-ka/values-ka.xml             |   41 +-
+ .../merged.dir/values-kk/values-kk.xml             |   43 +-
+ .../merged.dir/values-km/values-km.xml             |   41 +-
+ .../merged.dir/values-kn/values-kn.xml             |   41 +-
+ .../merged.dir/values-ko/values-ko.xml             |   41 +-
+ .../merged.dir/values-ky/values-ky.xml             |   43 +-
+ .../merged.dir/values-land/values-land.xml         |    6 +
+ .../merged.dir/values-large-v4/values-large-v4.xml |   12 +
+ .../values-ldltr-v21/values-ldltr-v21.xml          |    4 +
+ .../merged.dir/values-lo/values-lo.xml             |   41 +-
+ .../merged.dir/values-lt/values-lt.xml             |   41 +-
+ .../merged.dir/values-lv/values-lv.xml             |   41 +-
+ .../merged.dir/values-mk/values-mk.xml             |   41 +-
+ .../merged.dir/values-ml/values-ml.xml             |   41 +-
+ .../merged.dir/values-mn/values-mn.xml             |   41 +-
+ .../merged.dir/values-mr/values-mr.xml             |   41 +-
+ .../merged.dir/values-ms/values-ms.xml             |   41 +-
+ .../merged.dir/values-my/values-my.xml             |   41 +-
+ .../merged.dir/values-nb/values-nb.xml             |   41 +-
+ .../merged.dir/values-ne/values-ne.xml             |   41 +-
+ .../merged.dir/values-night-v8/values-night-v8.xml |    8 +
+ .../merged.dir/values-nl/values-nl.xml             |   41 +-
+ .../merged.dir/values-or/values-or.xml             |   41 +-
+ .../merged.dir/values-pa/values-pa.xml             |   43 +-
+ .../merged.dir/values-pl/values-pl.xml             |   41 +-
+ .../merged.dir/values-port/values-port.xml         |    4 +
+ .../merged.dir/values-pt-rBR/values-pt-rBR.xml     |   43 +-
+ .../merged.dir/values-pt-rPT/values-pt-rPT.xml     |   41 +-
+ .../merged.dir/values-pt/values-pt.xml             |   43 +-
+ .../merged.dir/values-ro/values-ro.xml             |   41 +-
+ .../merged.dir/values-ru/values-ru.xml             |   41 +-
+ .../merged.dir/values-si/values-si.xml             |   41 +-
+ .../merged.dir/values-sk/values-sk.xml             |   41 +-
+ .../merged.dir/values-sl/values-sl.xml             |   41 +-
+ .../merged.dir/values-sq/values-sq.xml             |   41 +-
+ .../merged.dir/values-sr/values-sr.xml             |   41 +-
+ .../merged.dir/values-sv/values-sv.xml             |   41 +-
+ .../merged.dir/values-sw/values-sw.xml             |   41 +-
+ .../values-sw360dp-v13/values-sw360dp-v13.xml      |    4 +
+ .../values-sw600dp-v13/values-sw600dp-v13.xml      |   11 +
+ .../merged.dir/values-ta/values-ta.xml             |   41 +-
+ .../merged.dir/values-te/values-te.xml             |   41 +-
+ .../merged.dir/values-th/values-th.xml             |   41 +-
+ .../merged.dir/values-tl/values-tl.xml             |   41 +-
+ .../merged.dir/values-tr/values-tr.xml             |   41 +-
+ .../merged.dir/values-uk/values-uk.xml             |   41 +-
+ .../merged.dir/values-ur/values-ur.xml             |   41 +-
+ .../merged.dir/values-uz/values-uz.xml             |   41 +-
+ .../merged.dir/values-v16/values-v16.xml           |    7 +
+ .../merged.dir/values-v17/values-v17.xml           |   62 +
+ .../merged.dir/values-v18/values-v18.xml           |    4 +
+ .../merged.dir/values-v21/values-v21.xml           |  265 +
+ .../merged.dir/values-v22/values-v22.xml           |   15 +
+ .../merged.dir/values-v23/values-v23.xml           |   49 +
+ .../merged.dir/values-v24/values-v24.xml           |    5 +
+ .../merged.dir/values-v25/values-v25.xml           |    9 +
+ .../merged.dir/values-v26/values-v26.xml           |   18 +
+ .../merged.dir/values-v28/values-v28.xml           |   13 +
+ .../merged.dir/values-vi/values-vi.xml             |   41 +-
+ .../values-watch-v20/values-watch-v20.xml          |   12 +
+ .../values-watch-v21/values-watch-v21.xml          |   15 +
+ .../values-xlarge-v4/values-xlarge-v4.xml          |    9 +
+ .../merged.dir/values-zh-rCN/values-zh-rCN.xml     |   41 +-
+ .../merged.dir/values-zh-rHK/values-zh-rHK.xml     |   41 +-
+ .../merged.dir/values-zh-rTW/values-zh-rTW.xml     |   41 +-
+ .../merged.dir/values-zu/values-zu.xml             |   41 +-
+ .../merged.dir/values/values.xml                   | 3629 +++++++++-
+ .../debug/mergeDebugResources/merger.xml           | 4742 ++++++++++++-
+ .../incremental/mergeDebugAssets/merger.xml        |    2 +-
+ .../incremental/mergeDebugJniLibFolders/merger.xml |    2 +
+ .../packageDebug/tmp/debug/dex-renamer-state.txt   |   31 +
+ .../tmp/debug/zip-cache/androidResources           |  Bin 0 -> 43132 bytes
+ .../tmp/debug/zip-cache/javaResources0             |  Bin 0 -> 6853 bytes
+ .../out/META-INF/app_debug.kotlin_module           |  Bin 0 -> 24 bytes
+ .../plugins/GeneratedPluginRegistrant.class        |  Bin 0 -> 2660 bytes
+ .../linked-resources-binary-format-debug.ap_       |  Bin 0 -> 604380 bytes
+ .../processDebugResources/output-metadata.json     |   20 +
+ .../manifest-merger-blame-debug-report.txt         |  395 +-
+ .../debug/mergeDebugJavaResource/base.jar          |  Bin 0 -> 27751 bytes
+ .../processDebugMainManifest/AndroidManifest.xml   |   51 +-
+ .../debug/processDebugManifest/AndroidManifest.xml |   51 +-
+ .../lib/arm64-v8a/libVkLayer_khronos_validation.so |  Bin 0 -> 226324384 bytes
+ .../lib/arm64-v8a/libdatastore_shared_counter.so   |  Bin 0 -> 7112 bytes
+ .../out/lib/arm64-v8a/libflutter.so                |  Bin 0 -> 343436704 bytes
+ .../lib/armeabi-v7a/libdatastore_shared_counter.so |  Bin 0 -> 4416 bytes
+ .../out/lib/x86/libdatastore_shared_counter.so     |  Bin 0 -> 5148 bytes
+ .../out/lib/x86_64/libdatastore_shared_counter.so  |  Bin 0 -> 6224 bytes
+ .../drawable-v21_launch_background.xml.flat        |  Bin 332 -> 332 bytes
+ .../mipmap-hdpi_ic_launcher.png.flat               |  Bin 676 -> 676 bytes
+ .../mipmap-mdpi_ic_launcher.png.flat               |  Bin 576 -> 576 bytes
+ .../mipmap-xhdpi_ic_launcher.png.flat              |  Bin 856 -> 856 bytes
+ .../mipmap-xxhdpi_ic_launcher.png.flat             |  Bin 1164 -> 1164 bytes
+ .../mipmap-xxxhdpi_ic_launcher.png.flat            |  Bin 1580 -> 1580 bytes
+ .../values-af_values-af.arsc.flat                  |  Bin 780 -> 3284 bytes
+ .../values-am_values-am.arsc.flat                  |  Bin 816 -> 3604 bytes
+ .../values-ar_values-ar.arsc.flat                  |  Bin 828 -> 3572 bytes
+ .../values-as_values-as.arsc.flat                  |  Bin 996 -> 4320 bytes
+ .../values-az_values-az.arsc.flat                  |  Bin 792 -> 3380 bytes
+ .../values-b+sr+Latn_values-b+sr+Latn.arsc.flat    |  Bin 828 -> 3644 bytes
+ .../values-be_values-be.arsc.flat                  |  Bin 868 -> 3832 bytes
+ .../values-bg_values-bg.arsc.flat                  |  Bin 884 -> 3880 bytes
+ .../values-bn_values-bn.arsc.flat                  |  Bin 940 -> 4212 bytes
+ .../values-bs_values-bs.arsc.flat                  |  Bin 776 -> 3364 bytes
+ .../values-ca_values-ca.arsc.flat                  |  Bin 784 -> 3372 bytes
+ .../values-cs_values-cs.arsc.flat                  |  Bin 796 -> 3392 bytes
+ .../values-da_values-da.arsc.flat                  |  Bin 784 -> 3280 bytes
+ .../values-de_values-de.arsc.flat                  |  Bin 784 -> 3356 bytes
+ .../values-el_values-el.arsc.flat                  |  Bin 872 -> 3980 bytes
+ .../values-en-rAU_values-en-rAU.arsc.flat          |  Bin 800 -> 3376 bytes
+ .../values-en-rCA_values-en-rCA.arsc.flat          |  Bin 800 -> 3376 bytes
+ .../values-en-rGB_values-en-rGB.arsc.flat          |  Bin 800 -> 3376 bytes
+ .../values-en-rIN_values-en-rIN.arsc.flat          |  Bin 800 -> 3376 bytes
+ .../values-en-rXC_values-en-rXC.arsc.flat          |  Bin 3284 -> 18104 bytes
+ .../values-es-rUS_values-es-rUS.arsc.flat          |  Bin 816 -> 3528 bytes
+ .../values-es_values-es.arsc.flat                  |  Bin 784 -> 3400 bytes
+ .../values-et_values-et.arsc.flat                  |  Bin 784 -> 3356 bytes
+ .../values-eu_values-eu.arsc.flat                  |  Bin 780 -> 3384 bytes
+ .../values-fa_values-fa.arsc.flat                  |  Bin 848 -> 3660 bytes
+ .../values-fi_values-fi.arsc.flat                  |  Bin 788 -> 3324 bytes
+ .../values-fr-rCA_values-fr-rCA.arsc.flat          |  Bin 808 -> 3568 bytes
+ .../values-fr_values-fr.arsc.flat                  |  Bin 780 -> 3404 bytes
+ .../values-gl_values-gl.arsc.flat                  |  Bin 780 -> 3404 bytes
+ .../values-gu_values-gu.arsc.flat                  |  Bin 908 -> 4000 bytes
+ .../values-h720dp-v13_values-h720dp-v13.arsc.flat  |  Bin 0 -> 284 bytes
+ .../values-hdpi-v4_values-hdpi-v4.arsc.flat        |  Bin 0 -> 484 bytes
+ .../values-hi_values-hi.arsc.flat                  |  Bin 992 -> 4088 bytes
+ .../values-hr_values-hr.arsc.flat                  |  Bin 776 -> 3368 bytes
+ .../values-hu_values-hu.arsc.flat                  |  Bin 788 -> 3432 bytes
+ .../values-hy_values-hy.arsc.flat                  |  Bin 844 -> 3740 bytes
+ .../values-in_values-in.arsc.flat                  |  Bin 780 -> 3308 bytes
+ .../values-is_values-is.arsc.flat                  |  Bin 776 -> 3296 bytes
+ .../values-it_values-it.arsc.flat                  |  Bin 796 -> 3308 bytes
+ .../values-iw_values-iw.arsc.flat                  |  Bin 800 -> 3492 bytes
+ .../values-ja_values-ja.arsc.flat                  |  Bin 772 -> 3420 bytes
+ .../values-ka_values-ka.arsc.flat                  |  Bin 932 -> 4184 bytes
+ .../values-kk_values-kk.arsc.flat                  |  Bin 832 -> 3684 bytes
+ .../values-km_values-km.arsc.flat                  |  Bin 928 -> 4116 bytes
+ .../values-kn_values-kn.arsc.flat                  |  Bin 992 -> 4364 bytes
+ .../values-ko_values-ko.arsc.flat                  |  Bin 784 -> 3368 bytes
+ .../values-ky_values-ky.arsc.flat                  |  Bin 864 -> 3752 bytes
+ .../values-land_values-land.arsc.flat              |  Bin 0 -> 400 bytes
+ .../values-large-v4_values-large-v4.arsc.flat      |  Bin 0 -> 888 bytes
+ .../values-ldltr-v21_values-ldltr-v21.arsc.flat    |  Bin 0 -> 340 bytes
+ .../values-lo_values-lo.arsc.flat                  |  Bin 884 -> 3972 bytes
+ .../values-lt_values-lt.arsc.flat                  |  Bin 804 -> 3528 bytes
+ .../values-lv_values-lv.arsc.flat                  |  Bin 792 -> 3616 bytes
+ .../values-mk_values-mk.arsc.flat                  |  Bin 840 -> 3792 bytes
+ .../values-ml_values-ml.arsc.flat                  |  Bin 964 -> 4392 bytes
+ .../values-mn_values-mn.arsc.flat                  |  Bin 872 -> 3760 bytes
+ .../values-mr_values-mr.arsc.flat                  |  Bin 948 -> 4056 bytes
+ .../values-ms_values-ms.arsc.flat                  |  Bin 792 -> 3332 bytes
+ .../values-my_values-my.arsc.flat                  |  Bin 996 -> 4500 bytes
+ .../values-nb_values-nb.arsc.flat                  |  Bin 780 -> 3256 bytes
+ .../values-ne_values-ne.arsc.flat                  |  Bin 920 -> 4432 bytes
+ .../values-night-v8_values-night-v8.arsc.flat      |  Bin 560 -> 1384 bytes
+ .../values-nl_values-nl.arsc.flat                  |  Bin 784 -> 3352 bytes
+ .../values-or_values-or.arsc.flat                  |  Bin 956 -> 4384 bytes
+ .../values-pa_values-pa.arsc.flat                  |  Bin 944 -> 3964 bytes
+ .../values-pl_values-pl.arsc.flat                  |  Bin 800 -> 3372 bytes
+ .../values-port_values-port.arsc.flat              |  Bin 0 -> 252 bytes
+ .../values-pt-rBR_values-pt-rBR.arsc.flat          |  Bin 820 -> 3560 bytes
+ .../values-pt-rPT_values-pt-rPT.arsc.flat          |  Bin 816 -> 3560 bytes
+ .../values-pt_values-pt.arsc.flat                  |  Bin 788 -> 3412 bytes
+ .../values-ro_values-ro.arsc.flat                  |  Bin 784 -> 3408 bytes
+ .../values-ru_values-ru.arsc.flat                  |  Bin 860 -> 3796 bytes
+ .../values-si_values-si.arsc.flat                  |  Bin 944 -> 4240 bytes
+ .../values-sk_values-sk.arsc.flat                  |  Bin 796 -> 3424 bytes
+ .../values-sl_values-sl.arsc.flat                  |  Bin 772 -> 3392 bytes
+ .../values-sq_values-sq.arsc.flat                  |  Bin 796 -> 3380 bytes
+ .../values-sr_values-sr.arsc.flat                  |  Bin 852 -> 3820 bytes
+ .../values-sv_values-sv.arsc.flat                  |  Bin 784 -> 3304 bytes
+ ...values-sw360dp-v13_values-sw360dp-v13.arsc.flat |  Bin 0 -> 288 bytes
+ ...values-sw600dp-v13_values-sw600dp-v13.arsc.flat |  Bin 0 -> 772 bytes
+ .../values-sw_values-sw.arsc.flat                  |  Bin 772 -> 3344 bytes
+ .../values-ta_values-ta.arsc.flat                  |  Bin 996 -> 4436 bytes
+ .../values-te_values-te.arsc.flat                  |  Bin 1000 -> 4432 bytes
+ .../values-th_values-th.arsc.flat                  |  Bin 912 -> 3884 bytes
+ .../values-tl_values-tl.arsc.flat                  |  Bin 784 -> 3376 bytes
+ .../values-tr_values-tr.arsc.flat                  |  Bin 768 -> 3320 bytes
+ .../values-uk_values-uk.arsc.flat                  |  Bin 856 -> 3832 bytes
+ .../values-ur_values-ur.arsc.flat                  |  Bin 840 -> 3728 bytes
+ .../values-uz_values-uz.arsc.flat                  |  Bin 788 -> 3356 bytes
+ .../values-v16_values-v16.arsc.flat                |  Bin 0 -> 408 bytes
+ .../values-v17_values-v17.arsc.flat                |  Bin 0 -> 3692 bytes
+ .../values-v18_values-v18.arsc.flat                |  Bin 0 -> 244 bytes
+ .../values-v21_values-v21.arsc.flat                |  Bin 1528 -> 21024 bytes
+ .../values-v22_values-v22.arsc.flat                |  Bin 0 -> 932 bytes
+ .../values-v23_values-v23.arsc.flat                |  Bin 0 -> 3340 bytes
+ .../values-v24_values-v24.arsc.flat                |  Bin 0 -> 516 bytes
+ .../values-v25_values-v25.arsc.flat                |  Bin 0 -> 580 bytes
+ .../values-v26_values-v26.arsc.flat                |  Bin 0 -> 1052 bytes
+ .../values-v28_values-v28.arsc.flat                |  Bin 0 -> 744 bytes
+ .../values-vi_values-vi.arsc.flat                  |  Bin 820 -> 3508 bytes
+ .../values-watch-v20_values-watch-v20.arsc.flat    |  Bin 0 -> 720 bytes
+ .../values-watch-v21_values-watch-v21.arsc.flat    |  Bin 0 -> 900 bytes
+ .../values-xlarge-v4_values-xlarge-v4.arsc.flat    |  Bin 0 -> 576 bytes
+ .../values-zh-rCN_values-zh-rCN.arsc.flat          |  Bin 792 -> 3428 bytes
+ .../values-zh-rHK_values-zh-rHK.arsc.flat          |  Bin 780 -> 3424 bytes
+ .../values-zh-rTW_values-zh-rTW.arsc.flat          |  Bin 780 -> 3432 bytes
+ .../values-zu_values-zu.arsc.flat                  |  Bin 780 -> 3328 bytes
+ .../mergeDebugResources/values_values.arsc.flat    |  Bin 16612 -> 212760 bytes
+ .../out/multi-v2/mergeDebugResources.json          | 7130 +++++++++++++++++---
+ .../out/multi-v2/values-af.json                    |   62 +-
+ .../out/multi-v2/values-am.json                    |   62 +-
+ .../out/multi-v2/values-ar.json                    |   62 +-
+ .../out/multi-v2/values-as.json                    |   62 +-
+ .../out/multi-v2/values-az.json                    |   62 +-
+ .../out/multi-v2/values-b+sr+Latn.json             |   62 +-
+ .../out/multi-v2/values-be.json                    |   62 +-
+ .../out/multi-v2/values-bg.json                    |   62 +-
+ .../out/multi-v2/values-bn.json                    |   62 +-
+ .../out/multi-v2/values-bs.json                    |   62 +-
+ .../out/multi-v2/values-ca.json                    |   62 +-
+ .../out/multi-v2/values-cs.json                    |   62 +-
+ .../out/multi-v2/values-da.json                    |   62 +-
+ .../out/multi-v2/values-de.json                    |   62 +-
+ .../out/multi-v2/values-el.json                    |   62 +-
+ .../out/multi-v2/values-en-rAU.json                |   62 +-
+ .../out/multi-v2/values-en-rCA.json                |   62 +-
+ .../out/multi-v2/values-en-rGB.json                |   62 +-
+ .../out/multi-v2/values-en-rIN.json                |   62 +-
+ .../out/multi-v2/values-en-rXC.json                |   62 +-
+ .../out/multi-v2/values-es-rUS.json                |   62 +-
+ .../out/multi-v2/values-es.json                    |   62 +-
+ .../out/multi-v2/values-et.json                    |   62 +-
+ .../out/multi-v2/values-eu.json                    |   62 +-
+ .../out/multi-v2/values-fa.json                    |   62 +-
+ .../out/multi-v2/values-fi.json                    |   62 +-
+ .../out/multi-v2/values-fr-rCA.json                |   62 +-
+ .../out/multi-v2/values-fr.json                    |   62 +-
+ .../out/multi-v2/values-gl.json                    |   62 +-
+ .../out/multi-v2/values-gu.json                    |   68 +-
+ .../out/multi-v2/values-h720dp-v13.json            |   19 +
+ .../out/multi-v2/values-hdpi-v4.json               |   20 +
+ .../out/multi-v2/values-hi.json                    |   62 +-
+ .../out/multi-v2/values-hr.json                    |   62 +-
+ .../out/multi-v2/values-hu.json                    |   62 +-
+ .../out/multi-v2/values-hy.json                    |   62 +-
+ .../out/multi-v2/values-in.json                    |   62 +-
+ .../out/multi-v2/values-is.json                    |   62 +-
+ .../out/multi-v2/values-it.json                    |   62 +-
+ .../out/multi-v2/values-iw.json                    |   62 +-
+ .../out/multi-v2/values-ja.json                    |   62 +-
+ .../out/multi-v2/values-ka.json                    |   62 +-
+ .../out/multi-v2/values-kk.json                    |   68 +-
+ .../out/multi-v2/values-km.json                    |   62 +-
+ .../out/multi-v2/values-kn.json                    |   62 +-
+ .../out/multi-v2/values-ko.json                    |   62 +-
+ .../out/multi-v2/values-ky.json                    |   68 +-
+ .../out/multi-v2/values-land.json                  |   19 +
+ .../out/multi-v2/values-large-v4.json              |   19 +
+ .../out/multi-v2/values-ldltr-v21.json             |   19 +
+ .../out/multi-v2/values-lo.json                    |   62 +-
+ .../out/multi-v2/values-lt.json                    |   62 +-
+ .../out/multi-v2/values-lv.json                    |   62 +-
+ .../out/multi-v2/values-mk.json                    |   62 +-
+ .../out/multi-v2/values-ml.json                    |   62 +-
+ .../out/multi-v2/values-mn.json                    |   62 +-
+ .../out/multi-v2/values-mr.json                    |   62 +-
+ .../out/multi-v2/values-ms.json                    |   62 +-
+ .../out/multi-v2/values-my.json                    |   62 +-
+ .../out/multi-v2/values-nb.json                    |   62 +-
+ .../out/multi-v2/values-ne.json                    |   62 +-
+ .../out/multi-v2/values-night-v8.json              |   19 +-
+ .../out/multi-v2/values-nl.json                    |   62 +-
+ .../out/multi-v2/values-or.json                    |   62 +-
+ .../out/multi-v2/values-pa.json                    |   68 +-
+ .../out/multi-v2/values-pl.json                    |   62 +-
+ .../out/multi-v2/values-port.json                  |   19 +
+ .../out/multi-v2/values-pt-rBR.json                |   68 +-
+ .../out/multi-v2/values-pt-rPT.json                |   62 +-
+ .../out/multi-v2/values-pt.json                    |   68 +-
+ .../out/multi-v2/values-ro.json                    |   62 +-
+ .../out/multi-v2/values-ru.json                    |   62 +-
+ .../out/multi-v2/values-si.json                    |   62 +-
+ .../out/multi-v2/values-sk.json                    |   62 +-
+ .../out/multi-v2/values-sl.json                    |   62 +-
+ .../out/multi-v2/values-sq.json                    |   62 +-
+ .../out/multi-v2/values-sr.json                    |   62 +-
+ .../out/multi-v2/values-sv.json                    |   62 +-
+ .../out/multi-v2/values-sw.json                    |   62 +-
+ .../out/multi-v2/values-sw360dp-v13.json           |   19 +
+ .../out/multi-v2/values-sw600dp-v13.json           |   19 +
+ .../out/multi-v2/values-ta.json                    |   62 +-
+ .../out/multi-v2/values-te.json                    |   62 +-
+ .../out/multi-v2/values-th.json                    |   62 +-
+ .../out/multi-v2/values-tl.json                    |   62 +-
+ .../out/multi-v2/values-tr.json                    |   62 +-
+ .../out/multi-v2/values-uk.json                    |   62 +-
+ .../out/multi-v2/values-ur.json                    |   62 +-
+ .../out/multi-v2/values-uz.json                    |   62 +-
+ .../out/multi-v2/values-v16.json                   |   20 +
+ .../out/multi-v2/values-v17.json                   |   20 +
+ .../out/multi-v2/values-v18.json                   |   19 +
+ .../out/multi-v2/values-v21.json                   |   50 +-
+ .../out/multi-v2/values-v22.json                   |   28 +
+ .../out/multi-v2/values-v23.json                   |   28 +
+ .../out/multi-v2/values-v24.json                   |   19 +
+ .../out/multi-v2/values-v25.json                   |   20 +
+ .../out/multi-v2/values-v26.json                   |   28 +
+ .../out/multi-v2/values-v28.json                   |   28 +
+ .../out/multi-v2/values-vi.json                    |   62 +-
+ .../out/multi-v2/values-watch-v20.json             |   20 +
+ .../out/multi-v2/values-watch-v21.json             |   20 +
+ .../out/multi-v2/values-xlarge-v4.json             |   19 +
+ .../out/multi-v2/values-zh-rCN.json                |   62 +-
+ .../out/multi-v2/values-zh-rHK.json                |   62 +-
+ .../out/multi-v2/values-zh-rTW.json                |   62 +-
+ .../out/multi-v2/values-zu.json                    |   62 +-
+ .../mergeDebugResources/out/multi-v2/values.json   |  299 +-
+ .../out/single/mergeDebugResources.json            |   24 +-
+ .../AndroidManifest.xml                            |   51 +-
+ .../output-metadata.json                           |   20 +
+ ...672e4aca05906247a6729d7e2cd1ae2d18ddbf778_0.jar |  Bin 0 -> 5994 bytes
+ ...672e4aca05906247a6729d7e2cd1ae2d18ddbf778_1.jar |  Bin 0 -> 8623 bytes
+ ...672e4aca05906247a6729d7e2cd1ae2d18ddbf778_2.jar |  Bin 0 -> 6168 bytes
+ ...672e4aca05906247a6729d7e2cd1ae2d18ddbf778_3.jar |  Bin 0 -> 31229 bytes
+ ...672e4aca05906247a6729d7e2cd1ae2d18ddbf778_4.jar |  Bin 0 -> 5982 bytes
+ ...672e4aca05906247a6729d7e2cd1ae2d18ddbf778_5.jar |  Bin 0 -> 28996 bytes
+ .../out/com/example/trustvault/MainActivity.dex    |  Bin 0 -> 892 bytes
+ .../flutter/plugins/GeneratedPluginRegistrant.dex  |  Bin 0 -> 2928 bytes
+ .../debug/processDebugResources/R.txt              | 2182 ++++++
+ .../signing-config-versions.json                   |    1 +
+ .../debug/mapDebugSourceSetPaths/file-map.txt      |   80 +-
+ .../debug/processDebugResources/stableIds.txt      | 1567 +++++
+ .../lib/arm64-v8a/libVkLayer_khronos_validation.so |  Bin 0 -> 14827032 bytes
+ .../lib/arm64-v8a/libdatastore_shared_counter.so   |  Bin 0 -> 7112 bytes
+ .../out/lib/arm64-v8a/libflutter.so                |  Bin 0 -> 36364048 bytes
+ .../lib/armeabi-v7a/libdatastore_shared_counter.so |  Bin 0 -> 4416 bytes
+ .../out/lib/x86/libdatastore_shared_counter.so     |  Bin 0 -> 5148 bytes
+ .../out/lib/x86_64/libdatastore_shared_counter.so  |  Bin 0 -> 6224 bytes
+ .../processDebugResources/package-aware-r.txt      | 1568 +++++
+ .../caches-jvm/inputs/source-to-output.tab         |  Bin 0 -> 4096 bytes
+ .../inputs/source-to-output.tab.keystream          |  Bin 0 -> 4096 bytes
+ .../inputs/source-to-output.tab.keystream.len      |  Bin 0 -> 8 bytes
+ .../caches-jvm/inputs/source-to-output.tab.len     |  Bin 0 -> 8 bytes
+ .../inputs/source-to-output.tab.values.at          |  Bin 0 -> 306 bytes
+ .../caches-jvm/inputs/source-to-output.tab_i       |  Bin 0 -> 32768 bytes
+ .../caches-jvm/inputs/source-to-output.tab_i.len   |  Bin 0 -> 8 bytes
+ .../caches-jvm/jvm/kotlin/class-attributes.tab     |  Bin 0 -> 4096 bytes
+ .../jvm/kotlin/class-attributes.tab.keystream      |  Bin 0 -> 4096 bytes
+ .../jvm/kotlin/class-attributes.tab.keystream.len  |  Bin 0 -> 8 bytes
+ .../caches-jvm/jvm/kotlin/class-attributes.tab.len |  Bin 0 -> 8 bytes
+ .../jvm/kotlin/class-attributes.tab.values.at      |  Bin 0 -> 52 bytes
+ .../caches-jvm/jvm/kotlin/class-attributes.tab_i   |  Bin 0 -> 32768 bytes
+ .../jvm/kotlin/class-attributes.tab_i.len          |  Bin 0 -> 8 bytes
+ .../jvm/kotlin/class-fq-name-to-source.tab         |  Bin 0 -> 4096 bytes
+ .../kotlin/class-fq-name-to-source.tab.keystream   |  Bin 0 -> 4096 bytes
+ .../class-fq-name-to-source.tab.keystream.len      |  Bin 0 -> 8 bytes
+ .../jvm/kotlin/class-fq-name-to-source.tab.len     |  Bin 0 -> 8 bytes
+ .../kotlin/class-fq-name-to-source.tab.values.at   |  Bin 0 -> 171 bytes
+ .../jvm/kotlin/class-fq-name-to-source.tab_i       |  Bin 0 -> 32768 bytes
+ .../jvm/kotlin/class-fq-name-to-source.tab_i.len   |  Bin 0 -> 8 bytes
+ .../jvm/kotlin/internal-name-to-source.tab         |  Bin 0 -> 4096 bytes
+ .../kotlin/internal-name-to-source.tab.keystream   |  Bin 0 -> 4096 bytes
+ .../internal-name-to-source.tab.keystream.len      |  Bin 0 -> 8 bytes
+ .../jvm/kotlin/internal-name-to-source.tab.len     |  Bin 0 -> 8 bytes
+ .../kotlin/internal-name-to-source.tab.values.at   |  Bin 0 -> 171 bytes
+ .../jvm/kotlin/internal-name-to-source.tab_i       |  Bin 0 -> 32768 bytes
+ .../jvm/kotlin/internal-name-to-source.tab_i.len   |  Bin 0 -> 8 bytes
+ .../cacheable/caches-jvm/jvm/kotlin/proto.tab      |  Bin 0 -> 4096 bytes
+ .../caches-jvm/jvm/kotlin/proto.tab.keystream      |  Bin 0 -> 4096 bytes
+ .../caches-jvm/jvm/kotlin/proto.tab.keystream.len  |  Bin 0 -> 8 bytes
+ .../cacheable/caches-jvm/jvm/kotlin/proto.tab.len  |  Bin 0 -> 8 bytes
+ .../caches-jvm/jvm/kotlin/proto.tab.values.at      |  Bin 0 -> 237 bytes
+ .../cacheable/caches-jvm/jvm/kotlin/proto.tab_i    |  Bin 0 -> 32768 bytes
+ .../caches-jvm/jvm/kotlin/proto.tab_i.len          |  Bin 0 -> 8 bytes
+ .../caches-jvm/jvm/kotlin/source-to-classes.tab    |  Bin 0 -> 4096 bytes
+ .../jvm/kotlin/source-to-classes.tab.keystream     |  Bin 0 -> 4096 bytes
+ .../jvm/kotlin/source-to-classes.tab.keystream.len |  Bin 0 -> 8 bytes
+ .../jvm/kotlin/source-to-classes.tab.len           |  Bin 0 -> 8 bytes
+ .../jvm/kotlin/source-to-classes.tab.values.at     |  Bin 0 -> 157 bytes
+ .../caches-jvm/jvm/kotlin/source-to-classes.tab_i  |  Bin 0 -> 32768 bytes
+ .../jvm/kotlin/source-to-classes.tab_i.len         |  Bin 0 -> 8 bytes
+ .../cacheable/caches-jvm/jvm/kotlin/subtypes.tab   |  Bin 0 -> 4096 bytes
+ .../caches-jvm/jvm/kotlin/subtypes.tab.keystream   |  Bin 0 -> 4096 bytes
+ .../jvm/kotlin/subtypes.tab.keystream.len          |  Bin 0 -> 8 bytes
+ .../caches-jvm/jvm/kotlin/subtypes.tab.len         |  Bin 0 -> 8 bytes
+ .../caches-jvm/jvm/kotlin/subtypes.tab.values.at   |  Bin 0 -> 87 bytes
+ .../cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i |  Bin 0 -> 32768 bytes
+ .../caches-jvm/jvm/kotlin/subtypes.tab_i.len       |  Bin 0 -> 8 bytes
+ .../cacheable/caches-jvm/jvm/kotlin/supertypes.tab |  Bin 0 -> 4096 bytes
+ .../caches-jvm/jvm/kotlin/supertypes.tab.keystream |  Bin 0 -> 4096 bytes
+ .../jvm/kotlin/supertypes.tab.keystream.len        |  Bin 0 -> 8 bytes
+ .../caches-jvm/jvm/kotlin/supertypes.tab.len       |  Bin 0 -> 8 bytes
+ .../caches-jvm/jvm/kotlin/supertypes.tab.values.at |  Bin 0 -> 96 bytes
+ .../caches-jvm/jvm/kotlin/supertypes.tab_i         |  Bin 0 -> 32768 bytes
+ .../caches-jvm/jvm/kotlin/supertypes.tab_i.len     |  Bin 0 -> 8 bytes
+ .../cacheable/caches-jvm/lookups/counters.tab      |    2 +
+ .../cacheable/caches-jvm/lookups/file-to-id.tab    |  Bin 0 -> 4096 bytes
+ .../caches-jvm/lookups/file-to-id.tab.keystream    |  Bin 0 -> 4096 bytes
+ .../lookups/file-to-id.tab.keystream.len           |  Bin 0 -> 8 bytes
+ .../caches-jvm/lookups/file-to-id.tab.len          |  Bin 0 -> 8 bytes
+ .../caches-jvm/lookups/file-to-id.tab.values.at    |  Bin 0 -> 55 bytes
+ .../cacheable/caches-jvm/lookups/file-to-id.tab_i  |  Bin 0 -> 32768 bytes
+ .../caches-jvm/lookups/file-to-id.tab_i.len        |  Bin 0 -> 8 bytes
+ .../cacheable/caches-jvm/lookups/id-to-file.tab    |  Bin 0 -> 4096 bytes
+ .../caches-jvm/lookups/id-to-file.tab.keystream    |  Bin 0 -> 4096 bytes
+ .../lookups/id-to-file.tab.keystream.len           |  Bin 0 -> 8 bytes
+ .../caches-jvm/lookups/id-to-file.tab.len          |  Bin 0 -> 8 bytes
+ .../caches-jvm/lookups/id-to-file.tab.values.at    |  Bin 0 -> 110 bytes
+ .../caches-jvm/lookups/id-to-file.tab_i.len        |  Bin 0 -> 8 bytes
+ .../cacheable/caches-jvm/lookups/lookups.tab       |  Bin 0 -> 4096 bytes
+ .../caches-jvm/lookups/lookups.tab.keystream       |  Bin 0 -> 4096 bytes
+ .../caches-jvm/lookups/lookups.tab.keystream.len   |  Bin 0 -> 8 bytes
+ .../cacheable/caches-jvm/lookups/lookups.tab.len   |  Bin 0 -> 8 bytes
+ .../caches-jvm/lookups/lookups.tab.values.at       |  Bin 0 -> 67 bytes
+ .../cacheable/caches-jvm/lookups/lookups.tab_i     |  Bin 0 -> 32768 bytes
+ .../cacheable/caches-jvm/lookups/lookups.tab_i.len |  Bin 0 -> 8 bytes
+ .../compileDebugKotlin/cacheable/last-build.bin    |  Bin 0 -> 18 bytes
+ .../shrunk-classpath-snapshot.bin                  |  Bin 0 -> 3505 bytes
+ .../local-state/build-history.bin                  |  Bin 0 -> 384 bytes
+ build/app/outputs/apk/debug/app-debug.apk          |  Bin 0 -> 98411201 bytes
+ build/app/outputs/apk/debug/output-metadata.json   |   21 +
+ build/app/outputs/flutter-apk/app-debug.apk        |  Bin 0 -> 98411201 bytes
+ build/app/outputs/flutter-apk/app-debug.apk.sha1   |    1 +
+ .../GeneratedPluginRegistrant.class.uniqueId0      |  Bin 0 -> 2433 bytes
+ .../previous-compilation-data.bin                  |  Bin 0 -> 56998 bytes
+ .../debug/META-INF/app_debug.kotlin_module         |  Bin 0 -> 24 bytes
+ .../com/example/trustvault/MainActivity.class      |  Bin 0 -> 589 bytes
+ ...c9372d2f8fbca74ff068d4fa4.cache.dill.track.dill |  Bin 0 -> 56785336 bytes
+ .../gen_dart_plugin_registrant.stamp               |    2 +-
+ .../caf8d821898a4909603337243fea2c00/results.bin   |    1 +
+ .../flutter/plugin/filepicker/FileInfo$Builder.dex |  Bin 0 -> 1636 bytes
+ .../com/mr/flutter/plugin/filepicker/FileInfo.dex  |  Bin 0 -> 1668 bytes
+ .../plugin/filepicker/FilePickerDelegate$1.dex     |  Bin 0 -> 5172 bytes
+ .../plugin/filepicker/FilePickerDelegate$2.dex     |  Bin 0 -> 1684 bytes
+ .../plugin/filepicker/FilePickerDelegate.dex       |  Bin 0 -> 9460 bytes
+ .../plugin/filepicker/FilePickerPlugin$1.dex       |  Bin 0 -> 1860 bytes
+ .../FilePickerPlugin$LifeCycleObserver.dex         |  Bin 0 -> 2660 bytes
+ .../FilePickerPlugin$MethodResultWrapper$1.dex     |  Bin 0 -> 1532 bytes
+ .../FilePickerPlugin$MethodResultWrapper$2.dex     |  Bin 0 -> 1664 bytes
+ .../FilePickerPlugin$MethodResultWrapper$3.dex     |  Bin 0 -> 1400 bytes
+ .../FilePickerPlugin$MethodResultWrapper.dex       |  Bin 0 -> 2216 bytes
+ .../flutter/plugin/filepicker/FilePickerPlugin.dex |  Bin 0 -> 7276 bytes
+ .../com/mr/flutter/plugin/filepicker/FileUtils.dex |  Bin 0 -> 14620 bytes
+ .../bundleLibRuntimeToDirDebug/desugar_graph.bin   |  Bin 0 -> 235 bytes
+ .../processDebugManifest/aapt/AndroidManifest.xml  |   15 +
+ .../processDebugManifest/aapt/output-metadata.json |   18 +
+ .../debug/syncDebugLibJars/classes.jar             |  Bin 0 -> 31088 bytes
+ .../writeDebugAarMetadata/aar-metadata.properties  |    6 +
+ .../javaPreCompileDebug/annotationProcessors.json  |    1 +
+ .../debug/extractDebugAnnotations/typedefs.txt     |    0
+ .../debug/bundleLibCompileToJarDebug/classes.jar   |  Bin 0 -> 62403 bytes
+ .../debug/generateDebugRFile/R.jar                 |  Bin 0 -> 327 bytes
+ .../debug/generateDebugRFile/R.txt                 |    0
+ .../incremental/debug-mergeJavaRes/merge-state     |  Bin 0 -> 478 bytes
+ .../compile-file-map.properties                    |    1 +
+ .../debug/packageDebugResources/merger.xml         |    2 +
+ .../incremental/mergeDebugAssets/merger.xml        |    2 +
+ .../incremental/mergeDebugJniLibFolders/merger.xml |    2 +
+ .../incremental/mergeDebugShaders/merger.xml       |    2 +
+ .../plugin/filepicker/FileInfo$Builder.class       |  Bin 0 -> 1507 bytes
+ .../mr/flutter/plugin/filepicker/FileInfo.class    |  Bin 0 -> 1414 bytes
+ .../plugin/filepicker/FilePickerDelegate$1.class   |  Bin 0 -> 5594 bytes
+ .../plugin/filepicker/FilePickerDelegate$2.class   |  Bin 0 -> 1338 bytes
+ .../plugin/filepicker/FilePickerDelegate.class     |  Bin 0 -> 12159 bytes
+ .../plugin/filepicker/FilePickerPlugin$1.class     |  Bin 0 -> 1674 bytes
+ .../FilePickerPlugin$LifeCycleObserver.class       |  Bin 0 -> 2717 bytes
+ .../FilePickerPlugin$MethodResultWrapper$1.class   |  Bin 0 -> 1335 bytes
+ .../FilePickerPlugin$MethodResultWrapper$2.class   |  Bin 0 -> 1530 bytes
+ .../FilePickerPlugin$MethodResultWrapper$3.class   |  Bin 0 -> 1215 bytes
+ .../FilePickerPlugin$MethodResultWrapper.class     |  Bin 0 -> 2281 bytes
+ .../plugin/filepicker/FilePickerPlugin.class       |  Bin 0 -> 8985 bytes
+ .../mr/flutter/plugin/filepicker/FileUtils.class   |  Bin 0 -> 17165 bytes
+ .../debug/parseDebugLocalResources/R-def.txt       |    2 +
+ .../manifest-merger-blame-debug-report.txt         |   21 +
+ .../mergeDebugJavaResource/feature-file_picker.jar |  Bin 0 -> 22 bytes
+ .../debug/processDebugManifest/AndroidManifest.xml |   15 +
+ .../debug/extractDeepLinksDebug/navigation.json    |    1 +
+ .../nestedResourcesValidationReport.txt            |    1 +
+ .../plugin/filepicker/FileInfo$Builder.class       |  Bin 0 -> 1507 bytes
+ .../mr/flutter/plugin/filepicker/FileInfo.class    |  Bin 0 -> 1414 bytes
+ .../plugin/filepicker/FilePickerDelegate$1.class   |  Bin 0 -> 5594 bytes
+ .../plugin/filepicker/FilePickerDelegate$2.class   |  Bin 0 -> 1338 bytes
+ .../plugin/filepicker/FilePickerDelegate.class     |  Bin 0 -> 12159 bytes
+ .../plugin/filepicker/FilePickerPlugin$1.class     |  Bin 0 -> 1674 bytes
+ .../FilePickerPlugin$LifeCycleObserver.class       |  Bin 0 -> 2717 bytes
+ .../FilePickerPlugin$MethodResultWrapper$1.class   |  Bin 0 -> 1335 bytes
+ .../FilePickerPlugin$MethodResultWrapper$2.class   |  Bin 0 -> 1530 bytes
+ .../FilePickerPlugin$MethodResultWrapper$3.class   |  Bin 0 -> 1215 bytes
+ .../FilePickerPlugin$MethodResultWrapper.class     |  Bin 0 -> 2281 bytes
+ .../plugin/filepicker/FilePickerPlugin.class       |  Bin 0 -> 8985 bytes
+ .../mr/flutter/plugin/filepicker/FileUtils.class   |  Bin 0 -> 17165 bytes
+ .../debug/generateDebugRFile/package-aware-r.txt   |    1 +
+ .../file_picker/outputs/aar/file_picker-debug.aar  |  Bin 0 -> 29585 bytes
+ .../previous-compilation-data.bin                  |  Bin 0 -> 23977 bytes
+ .../5425a48774e6054f805103fa5e55baf5/results.bin   |    1 +
+ .../bundleLibRuntimeToDirDebug/desugar_graph.bin   |  Bin 0 -> 235 bytes
+ .../plugins/lifecycle/FlutterLifecycleAdapter.dex  |  Bin 0 -> 1288 bytes
+ .../FlutterAndroidLifecyclePlugin.dex              |  Bin 0 -> 1208 bytes
+ .../processDebugManifest/aapt/AndroidManifest.xml  |    7 +
+ .../processDebugManifest/aapt/output-metadata.json |   18 +
+ .../debug/syncDebugLibJars/classes.jar             |  Bin 0 -> 2492 bytes
+ .../writeDebugAarMetadata/aar-metadata.properties  |    6 +
+ .../javaPreCompileDebug/annotationProcessors.json  |    1 +
+ .../debug/extractDebugAnnotations/typedefs.txt     |    0
+ .../debug/bundleLibCompileToJarDebug/classes.jar   |  Bin 0 -> 4091 bytes
+ .../debug/generateDebugRFile/R.jar                 |  Bin 0 -> 384 bytes
+ .../debug/generateDebugRFile/R.txt                 |    0
+ .../incremental/debug-mergeJavaRes/merge-state     |  Bin 0 -> 478 bytes
+ .../compile-file-map.properties                    |    1 +
+ .../debug/packageDebugResources/merger.xml         |    2 +
+ .../incremental/mergeDebugAssets/merger.xml        |    2 +
+ .../incremental/mergeDebugJniLibFolders/merger.xml |    2 +
+ .../incremental/mergeDebugShaders/merger.xml       |    2 +
+ .../lifecycle/FlutterLifecycleAdapter.class        |  Bin 0 -> 1150 bytes
+ .../FlutterAndroidLifecyclePlugin.class            |  Bin 0 -> 1041 bytes
+ .../debug/parseDebugLocalResources/R-def.txt       |    2 +
+ .../manifest-merger-blame-debug-report.txt         |    7 +
+ .../mergeDebugConsumerProguardFiles/proguard.txt   |    9 +
+ .../feature-flutter_plugin_android_lifecycle.jar   |  Bin 0 -> 22 bytes
+ .../debug/processDebugManifest/AndroidManifest.xml |    7 +
+ .../debug/extractDeepLinksDebug/navigation.json    |    1 +
+ .../nestedResourcesValidationReport.txt            |    1 +
+ .../lifecycle/FlutterLifecycleAdapter.class        |  Bin 0 -> 1150 bytes
+ .../FlutterAndroidLifecyclePlugin.class            |  Bin 0 -> 1041 bytes
+ .../debug/generateDebugRFile/package-aware-r.txt   |    1 +
+ .../aar/flutter_plugin_android_lifecycle-debug.aar |  Bin 0 -> 2528 bytes
+ .../previous-compilation-data.bin                  |  Bin 0 -> 53141 bytes
+ .../b31ada364d7555f2fa915f17d4f20992/results.bin   |    1 +
+ .../bundleLibRuntimeToDirDebug/desugar_graph.bin   |  Bin 0 -> 8549 bytes
+ .../flutter/plugins/imagepicker/ExifDataCopier.dex |  Bin 0 -> 5072 bytes
+ .../io/flutter/plugins/imagepicker/FileUtils.dex   |  Bin 0 -> 5572 bytes
+ .../imagepicker/ImagePickerCache$CacheType.dex     |  Bin 0 -> 1888 bytes
+ .../plugins/imagepicker/ImagePickerCache.dex       |  Bin 0 -> 6500 bytes
+ .../plugins/imagepicker/ImagePickerDelegate$1.dex  |  Bin 0 -> 2104 bytes
+ .../plugins/imagepicker/ImagePickerDelegate$2.dex  |  Bin 0 -> 3052 bytes
+ .../ImagePickerDelegate$CameraDevice.dex           |  Bin 0 -> 1916 bytes
+ .../ImagePickerDelegate$FileUriResolver.dex        |  Bin 0 -> 1204 bytes
+ .../imagepicker/ImagePickerDelegate$MediaPath.dex  |  Bin 0 -> 1516 bytes
+ .../ImagePickerDelegate$OnPathReadyListener.dex    |  Bin 0 -> 1000 bytes
+ .../ImagePickerDelegate$PendingCallState.dex       |  Bin 0 -> 1836 bytes
+ .../ImagePickerDelegate$PermissionManager.dex      |  Bin 0 -> 1144 bytes
+ .../plugins/imagepicker/ImagePickerDelegate.dex    |  Bin 0 -> 26188 bytes
+ .../imagepicker/ImagePickerFileProvider.dex        |  Bin 0 -> 704 bytes
+ .../plugins/imagepicker/ImagePickerPlugin$1.dex    |  Bin 0 -> 1772 bytes
+ .../ImagePickerPlugin$ActivityState.dex            |  Bin 0 -> 3284 bytes
+ .../ImagePickerPlugin$LifeCycleObserver.dex        |  Bin 0 -> 2928 bytes
+ .../plugins/imagepicker/ImagePickerPlugin.dex      |  Bin 0 -> 7380 bytes
+ .../plugins/imagepicker/ImagePickerUtils.dex       |  Bin 0 -> 3112 bytes
+ .../flutter/plugins/imagepicker/ImageResizer.dex   |  Bin 0 -> 6356 bytes
+ .../Messages$CacheRetrievalError$Builder.dex       |  Bin 0 -> 1672 bytes
+ .../imagepicker/Messages$CacheRetrievalError.dex   |  Bin 0 -> 2932 bytes
+ .../Messages$CacheRetrievalResult$Builder.dex      |  Bin 0 -> 2208 bytes
+ .../imagepicker/Messages$CacheRetrievalResult.dex  |  Bin 0 -> 3628 bytes
+ .../imagepicker/Messages$CacheRetrievalType.dex    |  Bin 0 -> 1948 bytes
+ .../imagepicker/Messages$CanIgnoreReturnValue.dex  |  Bin 0 -> 1120 bytes
+ .../plugins/imagepicker/Messages$FlutterError.dex  |  Bin 0 -> 1284 bytes
+ .../Messages$GeneralOptions$Builder.dex            |  Bin 0 -> 1868 bytes
+ .../imagepicker/Messages$GeneralOptions.dex        |  Bin 0 -> 3356 bytes
+ .../imagepicker/Messages$ImagePickerApi$1.dex      |  Bin 0 -> 2276 bytes
+ .../imagepicker/Messages$ImagePickerApi$2.dex      |  Bin 0 -> 2276 bytes
+ .../imagepicker/Messages$ImagePickerApi$3.dex      |  Bin 0 -> 2276 bytes
+ .../imagepicker/Messages$ImagePickerApi.dex        |  Bin 0 -> 7212 bytes
+ .../Messages$ImageSelectionOptions$Builder.dex     |  Bin 0 -> 1872 bytes
+ .../imagepicker/Messages$ImageSelectionOptions.dex |  Bin 0 -> 3292 bytes
+ .../Messages$MediaSelectionOptions$Builder.dex     |  Bin 0 -> 1624 bytes
+ .../imagepicker/Messages$MediaSelectionOptions.dex |  Bin 0 -> 2768 bytes
+ .../imagepicker/Messages$NullableResult.dex        |  Bin 0 -> 1236 bytes
+ .../plugins/imagepicker/Messages$PigeonCodec.dex   |  Bin 0 -> 3896 bytes
+ .../plugins/imagepicker/Messages$Result.dex        |  Bin 0 -> 1152 bytes
+ .../plugins/imagepicker/Messages$SourceCamera.dex  |  Bin 0 -> 1920 bytes
+ .../Messages$SourceSpecification$Builder.dex       |  Bin 0 -> 1800 bytes
+ .../imagepicker/Messages$SourceSpecification.dex   |  Bin 0 -> 3104 bytes
+ .../plugins/imagepicker/Messages$SourceType.dex    |  Bin 0 -> 1916 bytes
+ .../Messages$VideoSelectionOptions$Builder.dex     |  Bin 0 -> 1572 bytes
+ .../imagepicker/Messages$VideoSelectionOptions.dex |  Bin 0 -> 2624 bytes
+ .../plugins/imagepicker/Messages$VoidResult.dex    |  Bin 0 -> 1040 bytes
+ .../io/flutter/plugins/imagepicker/Messages.dex    |  Bin 0 -> 3172 bytes
+ .../processDebugManifest/aapt/AndroidManifest.xml  |   34 +
+ .../processDebugManifest/aapt/output-metadata.json |   18 +
+ .../debug/syncDebugLibJars/classes.jar             |  Bin 0 -> 79424 bytes
+ .../writeDebugAarMetadata/aar-metadata.properties  |    6 +
+ .../javaPreCompileDebug/annotationProcessors.json  |    1 +
+ .../debug/extractDebugAnnotations/typedefs.txt     |    0
+ .../debug/bundleLibCompileToJarDebug/classes.jar   |  Bin 0 -> 174477 bytes
+ .../debug/generateDebugRFile/R.jar                 |  Bin 0 -> 861 bytes
+ .../debug/generateDebugRFile/R.txt                 |    1 +
+ .../xml_flutter_image_picker_file_paths.xml.flat   |  Bin 0 -> 300 bytes
+ .../incremental/debug-mergeJavaRes/merge-state     |  Bin 0 -> 478 bytes
+ .../compile-file-map.properties                    |    2 +
+ .../debug/packageDebugResources/merger.xml         |    2 +
+ .../incremental/mergeDebugAssets/merger.xml        |    2 +
+ .../incremental/mergeDebugJniLibFolders/merger.xml |    2 +
+ .../incremental/mergeDebugShaders/merger.xml       |    2 +
+ .../plugins/imagepicker/ExifDataCopier.class       |  Bin 0 -> 4349 bytes
+ .../io/flutter/plugins/imagepicker/FileUtils.class |  Bin 0 -> 6560 bytes
+ .../imagepicker/ImagePickerCache$CacheType.class   |  Bin 0 -> 1385 bytes
+ .../plugins/imagepicker/ImagePickerCache.class     |  Bin 0 -> 7719 bytes
+ .../imagepicker/ImagePickerDelegate$1.class        |  Bin 0 -> 1591 bytes
+ .../imagepicker/ImagePickerDelegate$2.class        |  Bin 0 -> 3096 bytes
+ .../ImagePickerDelegate$CameraDevice.class         |  Bin 0 -> 1429 bytes
+ .../ImagePickerDelegate$FileUriResolver.class      |  Bin 0 -> 612 bytes
+ .../ImagePickerDelegate$MediaPath.class            |  Bin 0 -> 1174 bytes
+ .../ImagePickerDelegate$OnPathReadyListener.class  |  Bin 0 -> 344 bytes
+ .../ImagePickerDelegate$PendingCallState.class     |  Bin 0 -> 1905 bytes
+ .../ImagePickerDelegate$PermissionManager.class    |  Bin 0 -> 444 bytes
+ .../plugins/imagepicker/ImagePickerDelegate.class  |  Bin 0 -> 34664 bytes
+ .../imagepicker/ImagePickerFileProvider.class      |  Bin 0 -> 374 bytes
+ .../plugins/imagepicker/ImagePickerPlugin$1.class  |  Bin 0 -> 1318 bytes
+ .../ImagePickerPlugin$ActivityState.class          |  Bin 0 -> 4226 bytes
+ .../ImagePickerPlugin$LifeCycleObserver.class      |  Bin 0 -> 3130 bytes
+ .../plugins/imagepicker/ImagePickerPlugin.class    |  Bin 0 -> 11918 bytes
+ .../plugins/imagepicker/ImagePickerUtils.class     |  Bin 0 -> 3580 bytes
+ .../flutter/plugins/imagepicker/ImageResizer.class |  Bin 0 -> 7589 bytes
+ .../Messages$CacheRetrievalError$Builder.class     |  Bin 0 -> 1618 bytes
+ .../imagepicker/Messages$CacheRetrievalError.class |  Bin 0 -> 2780 bytes
+ .../Messages$CacheRetrievalResult$Builder.class    |  Bin 0 -> 2732 bytes
+ .../Messages$CacheRetrievalResult.class            |  Bin 0 -> 3925 bytes
+ .../imagepicker/Messages$CacheRetrievalType.class  |  Bin 0 -> 1481 bytes
+ .../Messages$CanIgnoreReturnValue.class            |  Bin 0 -> 537 bytes
+ .../imagepicker/Messages$FlutterError.class        |  Bin 0 -> 822 bytes
+ .../Messages$GeneralOptions$Builder.class          |  Bin 0 -> 1921 bytes
+ .../imagepicker/Messages$GeneralOptions.class      |  Bin 0 -> 3305 bytes
+ .../imagepicker/Messages$ImagePickerApi$1.class    |  Bin 0 -> 2073 bytes
+ .../imagepicker/Messages$ImagePickerApi$2.class    |  Bin 0 -> 2073 bytes
+ .../imagepicker/Messages$ImagePickerApi$3.class    |  Bin 0 -> 2073 bytes
+ .../imagepicker/Messages$ImagePickerApi.class      |  Bin 0 -> 9188 bytes
+ .../Messages$ImageSelectionOptions$Builder.class   |  Bin 0 -> 1958 bytes
+ .../Messages$ImageSelectionOptions.class           |  Bin 0 -> 3237 bytes
+ .../Messages$MediaSelectionOptions$Builder.class   |  Bin 0 -> 1719 bytes
+ .../Messages$MediaSelectionOptions.class           |  Bin 0 -> 2691 bytes
+ .../imagepicker/Messages$NullableResult.class      |  Bin 0 -> 550 bytes
+ .../plugins/imagepicker/Messages$PigeonCodec.class |  Bin 0 -> 4318 bytes
+ .../plugins/imagepicker/Messages$Result.class      |  Bin 0 -> 501 bytes
+ .../imagepicker/Messages$SourceCamera.class        |  Bin 0 -> 1438 bytes
+ .../Messages$SourceSpecification$Builder.class     |  Bin 0 -> 2121 bytes
+ .../imagepicker/Messages$SourceSpecification.class |  Bin 0 -> 3215 bytes
+ .../plugins/imagepicker/Messages$SourceType.class  |  Bin 0 -> 1428 bytes
+ .../Messages$VideoSelectionOptions$Builder.class   |  Bin 0 -> 1473 bytes
+ .../Messages$VideoSelectionOptions.class           |  Bin 0 -> 2383 bytes
+ .../plugins/imagepicker/Messages$VoidResult.class  |  Bin 0 -> 398 bytes
+ .../io/flutter/plugins/imagepicker/Messages.class  |  Bin 0 -> 4141 bytes
+ .../debug/parseDebugLocalResources/R-def.txt       |    3 +
+ .../manifest-merger-blame-debug-report.txt         |   54 +
+ .../feature-image_picker_android.jar               |  Bin 0 -> 22 bytes
+ .../debug/processDebugManifest/AndroidManifest.xml |   34 +
+ .../debug/extractDeepLinksDebug/navigation.json    |    1 +
+ .../nestedResourcesValidationReport.txt            |    1 +
+ .../xml/flutter_image_picker_file_paths.xml        |    4 +
+ .../plugins/imagepicker/ExifDataCopier.class       |  Bin 0 -> 4349 bytes
+ .../io/flutter/plugins/imagepicker/FileUtils.class |  Bin 0 -> 6560 bytes
+ .../imagepicker/ImagePickerCache$CacheType.class   |  Bin 0 -> 1385 bytes
+ .../plugins/imagepicker/ImagePickerCache.class     |  Bin 0 -> 7719 bytes
+ .../imagepicker/ImagePickerDelegate$1.class        |  Bin 0 -> 1591 bytes
+ .../imagepicker/ImagePickerDelegate$2.class        |  Bin 0 -> 3096 bytes
+ .../ImagePickerDelegate$CameraDevice.class         |  Bin 0 -> 1429 bytes
+ .../ImagePickerDelegate$FileUriResolver.class      |  Bin 0 -> 612 bytes
+ .../ImagePickerDelegate$MediaPath.class            |  Bin 0 -> 1174 bytes
+ .../ImagePickerDelegate$OnPathReadyListener.class  |  Bin 0 -> 344 bytes
+ .../ImagePickerDelegate$PendingCallState.class     |  Bin 0 -> 1905 bytes
+ .../ImagePickerDelegate$PermissionManager.class    |  Bin 0 -> 444 bytes
+ .../plugins/imagepicker/ImagePickerDelegate.class  |  Bin 0 -> 34664 bytes
+ .../imagepicker/ImagePickerFileProvider.class      |  Bin 0 -> 374 bytes
+ .../plugins/imagepicker/ImagePickerPlugin$1.class  |  Bin 0 -> 1318 bytes
+ .../ImagePickerPlugin$ActivityState.class          |  Bin 0 -> 4226 bytes
+ .../ImagePickerPlugin$LifeCycleObserver.class      |  Bin 0 -> 3130 bytes
+ .../plugins/imagepicker/ImagePickerPlugin.class    |  Bin 0 -> 11918 bytes
+ .../plugins/imagepicker/ImagePickerUtils.class     |  Bin 0 -> 3580 bytes
+ .../flutter/plugins/imagepicker/ImageResizer.class |  Bin 0 -> 7589 bytes
+ .../Messages$CacheRetrievalError$Builder.class     |  Bin 0 -> 1618 bytes
+ .../imagepicker/Messages$CacheRetrievalError.class |  Bin 0 -> 2780 bytes
+ .../Messages$CacheRetrievalResult$Builder.class    |  Bin 0 -> 2732 bytes
+ .../Messages$CacheRetrievalResult.class            |  Bin 0 -> 3925 bytes
+ .../imagepicker/Messages$CacheRetrievalType.class  |  Bin 0 -> 1481 bytes
+ .../Messages$CanIgnoreReturnValue.class            |  Bin 0 -> 537 bytes
+ .../imagepicker/Messages$FlutterError.class        |  Bin 0 -> 822 bytes
+ .../Messages$GeneralOptions$Builder.class          |  Bin 0 -> 1921 bytes
+ .../imagepicker/Messages$GeneralOptions.class      |  Bin 0 -> 3305 bytes
+ .../imagepicker/Messages$ImagePickerApi$1.class    |  Bin 0 -> 2073 bytes
+ .../imagepicker/Messages$ImagePickerApi$2.class    |  Bin 0 -> 2073 bytes
+ .../imagepicker/Messages$ImagePickerApi$3.class    |  Bin 0 -> 2073 bytes
+ .../imagepicker/Messages$ImagePickerApi.class      |  Bin 0 -> 9188 bytes
+ .../Messages$ImageSelectionOptions$Builder.class   |  Bin 0 -> 1958 bytes
+ .../Messages$ImageSelectionOptions.class           |  Bin 0 -> 3237 bytes
+ .../Messages$MediaSelectionOptions$Builder.class   |  Bin 0 -> 1719 bytes
+ .../Messages$MediaSelectionOptions.class           |  Bin 0 -> 2691 bytes
+ .../imagepicker/Messages$NullableResult.class      |  Bin 0 -> 550 bytes
+ .../plugins/imagepicker/Messages$PigeonCodec.class |  Bin 0 -> 4318 bytes
+ .../plugins/imagepicker/Messages$Result.class      |  Bin 0 -> 501 bytes
+ .../imagepicker/Messages$SourceCamera.class        |  Bin 0 -> 1438 bytes
+ .../Messages$SourceSpecification$Builder.class     |  Bin 0 -> 2121 bytes
+ .../imagepicker/Messages$SourceSpecification.class |  Bin 0 -> 3215 bytes
+ .../plugins/imagepicker/Messages$SourceType.class  |  Bin 0 -> 1428 bytes
+ .../Messages$VideoSelectionOptions$Builder.class   |  Bin 0 -> 1473 bytes
+ .../Messages$VideoSelectionOptions.class           |  Bin 0 -> 2383 bytes
+ .../plugins/imagepicker/Messages$VoidResult.class  |  Bin 0 -> 398 bytes
+ .../io/flutter/plugins/imagepicker/Messages.class  |  Bin 0 -> 4141 bytes
+ .../debug/generateDebugRFile/package-aware-r.txt   |    2 +
+ .../outputs/aar/image_picker_android-debug.aar     |  Bin 0 -> 73562 bytes
+ .../previous-compilation-data.bin                  |  Bin 0 -> 68784 bytes
+ .../6ebdbf472f809a550fdada485684808a/results.bin   |    1 +
+ .../bundleLibRuntimeToDirDebug/desugar_graph.bin   |  Bin 0 -> 1343 bytes
+ .../plugins/pathprovider/Messages$FlutterError.dex |  Bin 0 -> 1288 bytes
+ .../pathprovider/Messages$PathProviderApi.dex      |  Bin 0 -> 8380 bytes
+ .../plugins/pathprovider/Messages$PigeonCodec.dex  |  Bin 0 -> 2088 bytes
+ .../pathprovider/Messages$StorageDirectory.dex     |  Bin 0 -> 2408 bytes
+ .../io/flutter/plugins/pathprovider/Messages.dex   |  Bin 0 -> 2268 bytes
+ .../plugins/pathprovider/PathProviderPlugin$1.dex  |  Bin 0 -> 1968 bytes
+ .../plugins/pathprovider/PathProviderPlugin.dex    |  Bin 0 -> 4520 bytes
+ .../processDebugManifest/aapt/AndroidManifest.xml  |    7 +
+ .../processDebugManifest/aapt/output-metadata.json |   18 +
+ .../debug/syncDebugLibJars/classes.jar             |  Bin 0 -> 11262 bytes
+ .../writeDebugAarMetadata/aar-metadata.properties  |    6 +
+ .../javaPreCompileDebug/annotationProcessors.json  |    1 +
+ .../debug/extractDebugAnnotations/typedefs.txt     |    0
+ .../debug/bundleLibCompileToJarDebug/classes.jar   |  Bin 0 -> 23790 bytes
+ .../debug/generateDebugRFile/R.jar                 |  Bin 0 -> 324 bytes
+ .../debug/generateDebugRFile/R.txt                 |    0
+ .../incremental/debug-mergeJavaRes/merge-state     |  Bin 0 -> 478 bytes
+ .../compile-file-map.properties                    |    1 +
+ .../debug/packageDebugResources/merger.xml         |    2 +
+ .../incremental/mergeDebugAssets/merger.xml        |    2 +
+ .../incremental/mergeDebugJniLibFolders/merger.xml |    2 +
+ .../incremental/mergeDebugShaders/merger.xml       |    2 +
+ .../pathprovider/Messages$FlutterError.class       |  Bin 0 -> 825 bytes
+ .../pathprovider/Messages$PathProviderApi.class    |  Bin 0 -> 8130 bytes
+ .../pathprovider/Messages$PigeonCodec.class        |  Bin 0 -> 1787 bytes
+ .../pathprovider/Messages$StorageDirectory.class   |  Bin 0 -> 1993 bytes
+ .../io/flutter/plugins/pathprovider/Messages.class |  Bin 0 -> 2156 bytes
+ .../pathprovider/PathProviderPlugin$1.class        |  Bin 0 -> 1400 bytes
+ .../plugins/pathprovider/PathProviderPlugin.class  |  Bin 0 -> 5405 bytes
+ .../debug/parseDebugLocalResources/R-def.txt       |    2 +
+ .../manifest-merger-blame-debug-report.txt         |    7 +
+ .../feature-path_provider_android.jar              |  Bin 0 -> 22 bytes
+ .../debug/processDebugManifest/AndroidManifest.xml |    7 +
+ .../debug/extractDeepLinksDebug/navigation.json    |    1 +
+ .../nestedResourcesValidationReport.txt            |    1 +
+ .../pathprovider/Messages$FlutterError.class       |  Bin 0 -> 825 bytes
+ .../pathprovider/Messages$PathProviderApi.class    |  Bin 0 -> 8130 bytes
+ .../pathprovider/Messages$PigeonCodec.class        |  Bin 0 -> 1787 bytes
+ .../pathprovider/Messages$StorageDirectory.class   |  Bin 0 -> 1993 bytes
+ .../io/flutter/plugins/pathprovider/Messages.class |  Bin 0 -> 2156 bytes
+ .../pathprovider/PathProviderPlugin$1.class        |  Bin 0 -> 1400 bytes
+ .../plugins/pathprovider/PathProviderPlugin.class  |  Bin 0 -> 5405 bytes
+ .../debug/generateDebugRFile/package-aware-r.txt   |    1 +
+ .../outputs/aar/path_provider_android-debug.aar    |  Bin 0 -> 10770 bytes
+ .../previous-compilation-data.bin                  |  Bin 0 -> 53191 bytes
+ build/reports/problems/problems-report.html        |  663 ++
+ .../0da61f0f0f635723ea0a49c2ee96be13/results.bin   |    1 +
+ .../bundleLibRuntimeToDirDebug/desugar_graph.bin   |  Bin 0 -> 1264 bytes
+ .../LegacySharedPreferencesPlugin$ListEncoder.dex  |  Bin 0 -> 2820 bytes
+ .../LegacySharedPreferencesPlugin.dex              |  Bin 0 -> 7696 bytes
+ .../plugins/sharedpreferences/ListEncoder.dex      |  Bin 0 -> 3744 bytes
+ .../sharedpreferences/Messages$FlutterError.dex    |  Bin 0 -> 1300 bytes
+ .../sharedpreferences/Messages$PigeonCodec.dex     |  Bin 0 -> 1544 bytes
+ .../Messages$SharedPreferencesApi.dex              |  Bin 0 -> 10580 bytes
+ .../flutter/plugins/sharedpreferences/Messages.dex |  Bin 0 -> 2228 bytes
+ .../sharedpreferences/MessagesAsyncPigeonCodec.dex |  Bin 0 -> 3644 bytes
+ .../sharedpreferences/MessagesAsyncPigeonUtils.dex |  Bin 0 -> 5588 bytes
+ .../SharedPreferencesAsyncApi$Companion.dex        |  Bin 0 -> 21804 bytes
+ .../SharedPreferencesAsyncApi.dex                  |  Bin 0 -> 3900 bytes
+ .../sharedpreferences/SharedPreferencesBackend.dex |  Bin 0 -> 11936 bytes
+ .../sharedpreferences/SharedPreferencesError.dex   |  Bin 0 -> 2080 bytes
+ .../SharedPreferencesListEncoder.dex               |  Bin 0 -> 1080 bytes
+ .../SharedPreferencesPigeonOptions$Companion.dex   |  Bin 0 -> 2228 bytes
+ .../SharedPreferencesPigeonOptions.dex             |  Bin 0 -> 3644 bytes
+ .../SharedPreferencesPlugin$clear$1$1.dex          |  Bin 0 -> 4220 bytes
+ .../SharedPreferencesPlugin$clear$1.dex            |  Bin 0 -> 3764 bytes
+ ...haredPreferencesPlugin$dataStoreSetString$2.dex |  Bin 0 -> 3196 bytes
+ .../SharedPreferencesPlugin$getAll$1.dex           |  Bin 0 -> 3208 bytes
+ ...$getBool$1$invokeSuspend$$inlined$map$1$2$1.dex |  Bin 0 -> 1992 bytes
+ ...in$getBool$1$invokeSuspend$$inlined$map$1$2.dex |  Bin 0 -> 3792 bytes
+ ...ugin$getBool$1$invokeSuspend$$inlined$map$1.dex |  Bin 0 -> 3312 bytes
+ .../SharedPreferencesPlugin$getBool$1.dex          |  Bin 0 -> 5104 bytes
+ ...etDouble$1$invokeSuspend$$inlined$map$1$2$1.dex |  Bin 0 -> 2000 bytes
+ ...$getDouble$1$invokeSuspend$$inlined$map$1$2.dex |  Bin 0 -> 4228 bytes
+ ...in$getDouble$1$invokeSuspend$$inlined$map$1.dex |  Bin 0 -> 3428 bytes
+ .../SharedPreferencesPlugin$getDouble$1.dex        |  Bin 0 -> 5124 bytes
+ ...n$getInt$1$invokeSuspend$$inlined$map$1$2$1.dex |  Bin 0 -> 1988 bytes
+ ...gin$getInt$1$invokeSuspend$$inlined$map$1$2.dex |  Bin 0 -> 3788 bytes
+ ...lugin$getInt$1$invokeSuspend$$inlined$map$1.dex |  Bin 0 -> 3304 bytes
+ .../SharedPreferencesPlugin$getInt$1.dex           |  Bin 0 -> 5088 bytes
+ .../SharedPreferencesPlugin$getKeys$prefs$1.dex    |  Bin 0 -> 3204 bytes
+ .../SharedPreferencesPlugin$getPrefs$1.dex         |  Bin 0 -> 2228 bytes
+ ...etString$1$invokeSuspend$$inlined$map$1$2$1.dex |  Bin 0 -> 2000 bytes
+ ...$getString$1$invokeSuspend$$inlined$map$1$2.dex |  Bin 0 -> 3808 bytes
+ ...in$getString$1$invokeSuspend$$inlined$map$1.dex |  Bin 0 -> 3320 bytes
+ .../SharedPreferencesPlugin$getString$1.dex        |  Bin 0 -> 5088 bytes
+ ...ncesPlugin$getValueByKey$$inlined$map$1$2$1.dex |  Bin 0 -> 1952 bytes
+ ...rencesPlugin$getValueByKey$$inlined$map$1$2.dex |  Bin 0 -> 3720 bytes
+ ...ferencesPlugin$getValueByKey$$inlined$map$1.dex |  Bin 0 -> 3228 bytes
+ ...rencesPlugin$readAllKeys$$inlined$map$1$2$1.dex |  Bin 0 -> 1944 bytes
+ ...ferencesPlugin$readAllKeys$$inlined$map$1$2.dex |  Bin 0 -> 3676 bytes
+ ...referencesPlugin$readAllKeys$$inlined$map$1.dex |  Bin 0 -> 3212 bytes
+ .../SharedPreferencesPlugin$setBool$1$1.dex        |  Bin 0 -> 3276 bytes
+ .../SharedPreferencesPlugin$setBool$1.dex          |  Bin 0 -> 3884 bytes
+ ...PreferencesPlugin$setDeprecatedStringList$1.dex |  Bin 0 -> 3184 bytes
+ .../SharedPreferencesPlugin$setDouble$1$1.dex      |  Bin 0 -> 3284 bytes
+ .../SharedPreferencesPlugin$setDouble$1.dex        |  Bin 0 -> 3884 bytes
+ ...redPreferencesPlugin$setEncodedStringList$1.dex |  Bin 0 -> 3136 bytes
+ .../SharedPreferencesPlugin$setInt$1$1.dex         |  Bin 0 -> 3264 bytes
+ .../SharedPreferencesPlugin$setInt$1.dex           |  Bin 0 -> 3880 bytes
+ .../SharedPreferencesPlugin$setString$1.dex        |  Bin 0 -> 3092 bytes
+ .../sharedpreferences/SharedPreferencesPlugin.dex  |  Bin 0 -> 16932 bytes
+ .../SharedPreferencesPluginKt.dex                  |  Bin 0 -> 4916 bytes
+ .../StringListLookupResultType$Companion.dex       |  Bin 0 -> 2460 bytes
+ .../StringListLookupResultType.dex                 |  Bin 0 -> 2804 bytes
+ .../StringListObjectInputStream.dex                |  Bin 0 -> 2436 bytes
+ .../StringListResult$Companion.dex                 |  Bin 0 -> 2220 bytes
+ .../plugins/sharedpreferences/StringListResult.dex |  Bin 0 -> 3876 bytes
+ .../20260319_5311719423650209451.compiler.options  |    1 +
+ .../processDebugManifest/aapt/AndroidManifest.xml  |    7 +
+ .../processDebugManifest/aapt/output-metadata.json |   18 +
+ .../debug/syncDebugLibJars/classes.jar             |  Bin 0 -> 125935 bytes
+ .../writeDebugAarMetadata/aar-metadata.properties  |    6 +
+ .../javaPreCompileDebug/annotationProcessors.json  |    1 +
+ .../debug/extractDebugAnnotations/typedefs.txt     |    0
+ .../debug/bundleLibCompileToJarDebug/classes.jar   |  Bin 0 -> 294531 bytes
+ .../debug/generateDebugRFile/R.jar                 |  Bin 0 -> 339 bytes
+ .../debug/generateDebugRFile/R.txt                 |    0
+ .../incremental/debug-mergeJavaRes/merge-state     |  Bin 0 -> 810 bytes
+ .../compile-file-map.properties                    |    1 +
+ .../debug/packageDebugResources/merger.xml         |    2 +
+ .../incremental/mergeDebugAssets/merger.xml        |    2 +
+ .../incremental/mergeDebugJniLibFolders/merger.xml |    2 +
+ .../incremental/mergeDebugShaders/merger.xml       |    2 +
+ .../shared_preferences_android_debug.kotlin_module |  Bin 0 -> 91 bytes
+ ...LegacySharedPreferencesPlugin$ListEncoder.class |  Bin 0 -> 2459 bytes
+ .../LegacySharedPreferencesPlugin.class            |  Bin 0 -> 9724 bytes
+ .../sharedpreferences/Messages$FlutterError.class  |  Bin 0 -> 840 bytes
+ .../sharedpreferences/Messages$PigeonCodec.class   |  Bin 0 -> 1164 bytes
+ .../Messages$SharedPreferencesApi.class            |  Bin 0 -> 10496 bytes
+ .../plugins/sharedpreferences/Messages.class       |  Bin 0 -> 2104 bytes
+ .../SharedPreferencesListEncoder.class             |  Bin 0 -> 583 bytes
+ .../debug/parseDebugLocalResources/R-def.txt       |    2 +
+ .../manifest-merger-blame-debug-report.txt         |    7 +
+ .../feature-shared_preferences_android.jar         |  Bin 0 -> 279 bytes
+ .../debug/processDebugManifest/AndroidManifest.xml |    7 +
+ .../debug/extractDeepLinksDebug/navigation.json    |    1 +
+ .../nestedResourcesValidationReport.txt            |    1 +
+ .../shared_preferences_android_debug.kotlin_module |  Bin 0 -> 91 bytes
+ ...LegacySharedPreferencesPlugin$ListEncoder.class |  Bin 0 -> 2459 bytes
+ .../LegacySharedPreferencesPlugin.class            |  Bin 0 -> 9724 bytes
+ .../plugins/sharedpreferences/ListEncoder.class    |  Bin 0 -> 4087 bytes
+ .../sharedpreferences/Messages$FlutterError.class  |  Bin 0 -> 840 bytes
+ .../sharedpreferences/Messages$PigeonCodec.class   |  Bin 0 -> 1164 bytes
+ .../Messages$SharedPreferencesApi.class            |  Bin 0 -> 10496 bytes
+ .../plugins/sharedpreferences/Messages.class       |  Bin 0 -> 2104 bytes
+ .../MessagesAsyncPigeonCodec.class                 |  Bin 0 -> 4179 bytes
+ .../MessagesAsyncPigeonUtils.class                 |  Bin 0 -> 6189 bytes
+ .../SharedPreferencesAsyncApi$Companion.class      |  Bin 0 -> 19430 bytes
+ .../SharedPreferencesAsyncApi.class                |  Bin 0 -> 4714 bytes
+ .../SharedPreferencesBackend.class                 |  Bin 0 -> 16697 bytes
+ .../sharedpreferences/SharedPreferencesError.class |  Bin 0 -> 1841 bytes
+ .../SharedPreferencesListEncoder.class             |  Bin 0 -> 583 bytes
+ .../SharedPreferencesPigeonOptions$Companion.class |  Bin 0 -> 2017 bytes
+ .../SharedPreferencesPigeonOptions.class           |  Bin 0 -> 3865 bytes
+ .../SharedPreferencesPlugin$clear$1$1.class        |  Bin 0 -> 5355 bytes
+ .../SharedPreferencesPlugin$clear$1.class          |  Bin 0 -> 4435 bytes
+ ...redPreferencesPlugin$dataStoreSetString$2.class |  Bin 0 -> 3904 bytes
+ .../SharedPreferencesPlugin$getAll$1.class         |  Bin 0 -> 3798 bytes
+ ...etBool$1$invokeSuspend$$inlined$map$1$2$1.class |  Bin 0 -> 1917 bytes
+ ...$getBool$1$invokeSuspend$$inlined$map$1$2.class |  Bin 0 -> 4139 bytes
+ ...in$getBool$1$invokeSuspend$$inlined$map$1.class |  Bin 0 -> 3476 bytes
+ .../SharedPreferencesPlugin$getBool$1.class        |  Bin 0 -> 6882 bytes
+ ...Double$1$invokeSuspend$$inlined$map$1$2$1.class |  Bin 0 -> 1929 bytes
+ ...etDouble$1$invokeSuspend$$inlined$map$1$2.class |  Bin 0 -> 4787 bytes
+ ...$getDouble$1$invokeSuspend$$inlined$map$1.class |  Bin 0 -> 3708 bytes
+ .../SharedPreferencesPlugin$getDouble$1.class      |  Bin 0 -> 6973 bytes
+ ...getInt$1$invokeSuspend$$inlined$map$1$2$1.class |  Bin 0 -> 1911 bytes
+ ...n$getInt$1$invokeSuspend$$inlined$map$1$2.class |  Bin 0 -> 4131 bytes
+ ...gin$getInt$1$invokeSuspend$$inlined$map$1.class |  Bin 0 -> 3469 bytes
+ .../SharedPreferencesPlugin$getInt$1.class         |  Bin 0 -> 6860 bytes
+ .../SharedPreferencesPlugin$getKeys$prefs$1.class  |  Bin 0 -> 3828 bytes
+ .../SharedPreferencesPlugin$getPrefs$1.class       |  Bin 0 -> 2179 bytes
+ ...String$1$invokeSuspend$$inlined$map$1$2$1.class |  Bin 0 -> 1929 bytes
+ ...etString$1$invokeSuspend$$inlined$map$1$2.class |  Bin 0 -> 4155 bytes
+ ...$getString$1$invokeSuspend$$inlined$map$1.class |  Bin 0 -> 3483 bytes
+ .../SharedPreferencesPlugin$getString$1.class      |  Bin 0 -> 6898 bytes
+ ...esPlugin$getValueByKey$$inlined$map$1$2$1.class |  Bin 0 -> 1857 bytes
+ ...ncesPlugin$getValueByKey$$inlined$map$1$2.class |  Bin 0 -> 4044 bytes
+ ...rencesPlugin$getValueByKey$$inlined$map$1.class |  Bin 0 -> 3491 bytes
+ ...ncesPlugin$readAllKeys$$inlined$map$1$2$1.class |  Bin 0 -> 1845 bytes
+ ...rencesPlugin$readAllKeys$$inlined$map$1$2.class |  Bin 0 -> 3889 bytes
+ ...ferencesPlugin$readAllKeys$$inlined$map$1.class |  Bin 0 -> 3282 bytes
+ .../SharedPreferencesPlugin$setBool$1$1.class      |  Bin 0 -> 3812 bytes
+ .../SharedPreferencesPlugin$setBool$1.class        |  Bin 0 -> 4761 bytes
+ ...eferencesPlugin$setDeprecatedStringList$1.class |  Bin 0 -> 3838 bytes
+ .../SharedPreferencesPlugin$setDouble$1$1.class    |  Bin 0 -> 3821 bytes
+ .../SharedPreferencesPlugin$setDouble$1.class      |  Bin 0 -> 4762 bytes
+ ...dPreferencesPlugin$setEncodedStringList$1.class |  Bin 0 -> 3819 bytes
+ .../SharedPreferencesPlugin$setInt$1$1.class       |  Bin 0 -> 3795 bytes
+ .../SharedPreferencesPlugin$setInt$1.class         |  Bin 0 -> 4751 bytes
+ .../SharedPreferencesPlugin$setString$1.class      |  Bin 0 -> 3764 bytes
+ .../SharedPreferencesPlugin.class                  |  Bin 0 -> 24181 bytes
+ .../SharedPreferencesPluginKt.class                |  Bin 0 -> 4801 bytes
+ .../StringListLookupResultType$Companion.class     |  Bin 0 -> 2631 bytes
+ .../StringListLookupResultType.class               |  Bin 0 -> 2655 bytes
+ .../StringListObjectInputStream.class              |  Bin 0 -> 2128 bytes
+ .../StringListResult$Companion.class               |  Bin 0 -> 2122 bytes
+ .../sharedpreferences/StringListResult.class       |  Bin 0 -> 4335 bytes
+ .../debug/generateDebugRFile/package-aware-r.txt   |    1 +
+ .../shrunk-classpath-snapshot.bin                  |  Bin 0 -> 40864 bytes
+ .../aar/shared_preferences_android-debug.aar       |  Bin 0 -> 114395 bytes
+ .../previous-compilation-data.bin                  |  Bin 0 -> 56075 bytes
+ .../shared_preferences_android_debug.kotlin_module |  Bin 0 -> 91 bytes
+ .../plugins/sharedpreferences/ListEncoder.class    |  Bin 0 -> 4087 bytes
+ .../MessagesAsyncPigeonCodec.class                 |  Bin 0 -> 4179 bytes
+ .../MessagesAsyncPigeonUtils.class                 |  Bin 0 -> 6189 bytes
+ .../SharedPreferencesAsyncApi$Companion.class      |  Bin 0 -> 19430 bytes
+ .../SharedPreferencesAsyncApi.class                |  Bin 0 -> 4714 bytes
+ .../SharedPreferencesBackend.class                 |  Bin 0 -> 16697 bytes
+ .../sharedpreferences/SharedPreferencesError.class |  Bin 0 -> 1841 bytes
+ .../SharedPreferencesPigeonOptions$Companion.class |  Bin 0 -> 2017 bytes
+ .../SharedPreferencesPigeonOptions.class           |  Bin 0 -> 3865 bytes
+ .../SharedPreferencesPlugin$clear$1$1.class        |  Bin 0 -> 5355 bytes
+ .../SharedPreferencesPlugin$clear$1.class          |  Bin 0 -> 4435 bytes
+ ...redPreferencesPlugin$dataStoreSetString$2.class |  Bin 0 -> 3904 bytes
+ .../SharedPreferencesPlugin$getAll$1.class         |  Bin 0 -> 3798 bytes
+ ...etBool$1$invokeSuspend$$inlined$map$1$2$1.class |  Bin 0 -> 1917 bytes
+ ...$getBool$1$invokeSuspend$$inlined$map$1$2.class |  Bin 0 -> 4139 bytes
+ ...in$getBool$1$invokeSuspend$$inlined$map$1.class |  Bin 0 -> 3476 bytes
+ .../SharedPreferencesPlugin$getBool$1.class        |  Bin 0 -> 6882 bytes
+ ...Double$1$invokeSuspend$$inlined$map$1$2$1.class |  Bin 0 -> 1929 bytes
+ ...etDouble$1$invokeSuspend$$inlined$map$1$2.class |  Bin 0 -> 4787 bytes
+ ...$getDouble$1$invokeSuspend$$inlined$map$1.class |  Bin 0 -> 3708 bytes
+ .../SharedPreferencesPlugin$getDouble$1.class      |  Bin 0 -> 6973 bytes
+ ...getInt$1$invokeSuspend$$inlined$map$1$2$1.class |  Bin 0 -> 1911 bytes
+ ...n$getInt$1$invokeSuspend$$inlined$map$1$2.class |  Bin 0 -> 4131 bytes
+ ...gin$getInt$1$invokeSuspend$$inlined$map$1.class |  Bin 0 -> 3469 bytes
+ .../SharedPreferencesPlugin$getInt$1.class         |  Bin 0 -> 6860 bytes
+ .../SharedPreferencesPlugin$getKeys$prefs$1.class  |  Bin 0 -> 3828 bytes
+ .../SharedPreferencesPlugin$getPrefs$1.class       |  Bin 0 -> 2179 bytes
+ ...String$1$invokeSuspend$$inlined$map$1$2$1.class |  Bin 0 -> 1929 bytes
+ ...etString$1$invokeSuspend$$inlined$map$1$2.class |  Bin 0 -> 4155 bytes
+ ...$getString$1$invokeSuspend$$inlined$map$1.class |  Bin 0 -> 3483 bytes
+ .../SharedPreferencesPlugin$getString$1.class      |  Bin 0 -> 6898 bytes
+ ...esPlugin$getValueByKey$$inlined$map$1$2$1.class |  Bin 0 -> 1857 bytes
+ ...ncesPlugin$getValueByKey$$inlined$map$1$2.class |  Bin 0 -> 4044 bytes
+ ...rencesPlugin$getValueByKey$$inlined$map$1.class |  Bin 0 -> 3491 bytes
+ ...ncesPlugin$readAllKeys$$inlined$map$1$2$1.class |  Bin 0 -> 1845 bytes
+ ...rencesPlugin$readAllKeys$$inlined$map$1$2.class |  Bin 0 -> 3889 bytes
+ ...ferencesPlugin$readAllKeys$$inlined$map$1.class |  Bin 0 -> 3282 bytes
+ .../SharedPreferencesPlugin$setBool$1$1.class      |  Bin 0 -> 3812 bytes
+ .../SharedPreferencesPlugin$setBool$1.class        |  Bin 0 -> 4761 bytes
+ ...eferencesPlugin$setDeprecatedStringList$1.class |  Bin 0 -> 3838 bytes
+ .../SharedPreferencesPlugin$setDouble$1$1.class    |  Bin 0 -> 3821 bytes
+ .../SharedPreferencesPlugin$setDouble$1.class      |  Bin 0 -> 4762 bytes
+ ...dPreferencesPlugin$setEncodedStringList$1.class |  Bin 0 -> 3819 bytes
+ .../SharedPreferencesPlugin$setInt$1$1.class       |  Bin 0 -> 3795 bytes
+ .../SharedPreferencesPlugin$setInt$1.class         |  Bin 0 -> 4751 bytes
+ .../SharedPreferencesPlugin$setString$1.class      |  Bin 0 -> 3764 bytes
+ .../SharedPreferencesPlugin.class                  |  Bin 0 -> 24181 bytes
+ .../SharedPreferencesPluginKt.class                |  Bin 0 -> 4801 bytes
+ .../StringListLookupResultType$Companion.class     |  Bin 0 -> 2631 bytes
+ .../StringListLookupResultType.class               |  Bin 0 -> 2655 bytes
+ .../StringListObjectInputStream.class              |  Bin 0 -> 2128 bytes
+ .../StringListResult$Companion.class               |  Bin 0 -> 2122 bytes
+ .../sharedpreferences/StringListResult.class       |  Bin 0 -> 4335 bytes
+ .../db8929b4e8687b376f30605e2111b04a/results.bin   |    1 +
+ .../bundleLibRuntimeToDirDebug/desugar_graph.bin   |  Bin 0 -> 3025 bytes
+ .../io/flutter/plugins/urllauncher/BuildConfig.dex |  Bin 0 -> 1020 bytes
+ .../Messages$BrowserOptions$Builder.dex            |  Bin 0 -> 1536 bytes
+ .../urllauncher/Messages$BrowserOptions.dex        |  Bin 0 -> 2648 bytes
+ .../urllauncher/Messages$CanIgnoreReturnValue.dex  |  Bin 0 -> 1120 bytes
+ .../plugins/urllauncher/Messages$FlutterError.dex  |  Bin 0 -> 1284 bytes
+ .../plugins/urllauncher/Messages$PigeonCodec.dex   |  Bin 0 -> 2060 bytes
+ .../urllauncher/Messages$UrlLauncherApi.dex        |  Bin 0 -> 7144 bytes
+ .../Messages$WebViewOptions$Builder.dex            |  Bin 0 -> 2104 bytes
+ .../urllauncher/Messages$WebViewOptions.dex        |  Bin 0 -> 3528 bytes
+ .../io/flutter/plugins/urllauncher/Messages.dex    |  Bin 0 -> 2404 bytes
+ .../urllauncher/UrlLauncher$IntentResolver.dex     |  Bin 0 -> 1120 bytes
+ .../io/flutter/plugins/urllauncher/UrlLauncher.dex |  Bin 0 -> 7716 bytes
+ .../plugins/urllauncher/UrlLauncherPlugin.dex      |  Bin 0 -> 2628 bytes
+ .../plugins/urllauncher/WebViewActivity$1.dex      |  Bin 0 -> 1528 bytes
+ .../plugins/urllauncher/WebViewActivity$2.dex      |  Bin 0 -> 1508 bytes
+ .../WebViewActivity$FlutterWebChromeClient$1.dex   |  Bin 0 -> 1868 bytes
+ .../WebViewActivity$FlutterWebChromeClient.dex     |  Bin 0 -> 2032 bytes
+ .../plugins/urllauncher/WebViewActivity.dex        |  Bin 0 -> 4784 bytes
+ .../flutter/plugins/urllauncher/BuildConfig.java   |   10 +
+ .../processDebugManifest/aapt/AndroidManifest.xml  |   14 +
+ .../processDebugManifest/aapt/output-metadata.json |   18 +
+ .../debug/syncDebugLibJars/classes.jar             |  Bin 0 -> 25690 bytes
+ .../writeDebugAarMetadata/aar-metadata.properties  |    6 +
+ .../javaPreCompileDebug/annotationProcessors.json  |    1 +
+ .../debug/extractDebugAnnotations/typedefs.txt     |    0
+ .../debug/bundleLibCompileToJarDebug/classes.jar   |  Bin 0 -> 51536 bytes
+ .../debug/generateDebugRFile/R.jar                 |  Bin 0 -> 321 bytes
+ .../debug/generateDebugRFile/R.txt                 |    0
+ .../incremental/debug-mergeJavaRes/merge-state     |  Bin 0 -> 478 bytes
+ .../compile-file-map.properties                    |    1 +
+ .../debug/packageDebugResources/merger.xml         |    2 +
+ .../incremental/mergeDebugAssets/merger.xml        |    2 +
+ .../incremental/mergeDebugJniLibFolders/merger.xml |    2 +
+ .../incremental/mergeDebugShaders/merger.xml       |    2 +
+ .../flutter/plugins/urllauncher/BuildConfig.class  |  Bin 0 -> 642 bytes
+ .../Messages$BrowserOptions$Builder.class          |  Bin 0 -> 1415 bytes
+ .../urllauncher/Messages$BrowserOptions.class      |  Bin 0 -> 2393 bytes
+ .../Messages$CanIgnoreReturnValue.class            |  Bin 0 -> 537 bytes
+ .../urllauncher/Messages$FlutterError.class        |  Bin 0 -> 822 bytes
+ .../plugins/urllauncher/Messages$PigeonCodec.class |  Bin 0 -> 1860 bytes
+ .../urllauncher/Messages$UrlLauncherApi.class      |  Bin 0 -> 7362 bytes
+ .../Messages$WebViewOptions$Builder.class          |  Bin 0 -> 2181 bytes
+ .../urllauncher/Messages$WebViewOptions.class      |  Bin 0 -> 3533 bytes
+ .../io/flutter/plugins/urllauncher/Messages.class  |  Bin 0 -> 2495 bytes
+ .../urllauncher/UrlLauncher$IntentResolver.class   |  Bin 0 -> 513 bytes
+ .../flutter/plugins/urllauncher/UrlLauncher.class  |  Bin 0 -> 9697 bytes
+ .../plugins/urllauncher/UrlLauncherPlugin.class    |  Bin 0 -> 2871 bytes
+ .../plugins/urllauncher/WebViewActivity$1.class    |  Bin 0 -> 1156 bytes
+ .../plugins/urllauncher/WebViewActivity$2.class    |  Bin 0 -> 1141 bytes
+ .../WebViewActivity$FlutterWebChromeClient$1.class |  Bin 0 -> 1604 bytes
+ .../WebViewActivity$FlutterWebChromeClient.class   |  Bin 0 -> 1783 bytes
+ .../plugins/urllauncher/WebViewActivity.class      |  Bin 0 -> 5276 bytes
+ .../debug/parseDebugLocalResources/R-def.txt       |    2 +
+ .../manifest-merger-blame-debug-report.txt         |   19 +
+ .../feature-url_launcher_android.jar               |  Bin 0 -> 22 bytes
+ .../debug/processDebugManifest/AndroidManifest.xml |   14 +
+ .../debug/extractDeepLinksDebug/navigation.json    |    1 +
+ .../nestedResourcesValidationReport.txt            |    1 +
+ .../flutter/plugins/urllauncher/BuildConfig.class  |  Bin 0 -> 642 bytes
+ .../Messages$BrowserOptions$Builder.class          |  Bin 0 -> 1415 bytes
+ .../urllauncher/Messages$BrowserOptions.class      |  Bin 0 -> 2393 bytes
+ .../Messages$CanIgnoreReturnValue.class            |  Bin 0 -> 537 bytes
+ .../urllauncher/Messages$FlutterError.class        |  Bin 0 -> 822 bytes
+ .../plugins/urllauncher/Messages$PigeonCodec.class |  Bin 0 -> 1860 bytes
+ .../urllauncher/Messages$UrlLauncherApi.class      |  Bin 0 -> 7362 bytes
+ .../Messages$WebViewOptions$Builder.class          |  Bin 0 -> 2181 bytes
+ .../urllauncher/Messages$WebViewOptions.class      |  Bin 0 -> 3533 bytes
+ .../io/flutter/plugins/urllauncher/Messages.class  |  Bin 0 -> 2495 bytes
+ .../urllauncher/UrlLauncher$IntentResolver.class   |  Bin 0 -> 513 bytes
+ .../flutter/plugins/urllauncher/UrlLauncher.class  |  Bin 0 -> 9697 bytes
+ .../plugins/urllauncher/UrlLauncherPlugin.class    |  Bin 0 -> 2871 bytes
+ .../plugins/urllauncher/WebViewActivity$1.class    |  Bin 0 -> 1156 bytes
+ .../plugins/urllauncher/WebViewActivity$2.class    |  Bin 0 -> 1141 bytes
+ .../WebViewActivity$FlutterWebChromeClient$1.class |  Bin 0 -> 1604 bytes
+ .../WebViewActivity$FlutterWebChromeClient.class   |  Bin 0 -> 1783 bytes
+ .../plugins/urllauncher/WebViewActivity.class      |  Bin 0 -> 5276 bytes
+ .../debug/generateDebugRFile/package-aware-r.txt   |    1 +
+ .../outputs/aar/url_launcher_android-debug.aar     |  Bin 0 -> 23651 bytes
+ .../previous-compilation-data.bin                  |  Bin 0 -> 65416 bytes
+ frontend/src/App.jsx                               |   20 +-
+ frontend/src/api/index.js                          |    2 +-
+ frontend/src/pages/issuer/IssueDoc.jsx             |  213 +-
+ frontend/src/pages/user/FloatingAI.jsx             |  142 +
+ frontend/src/pages/user/Folders.jsx                |  305 +
+ frontend/src/pages/user/Share.jsx                  |    6 +-
+ frontend/src/pages/user/Timeline.jsx               |    2 +-
+ frontend/src/pages/user/Wallet.jsx                 |  318 +-
+ frontend/src/pages/user/index.jsx                  |   61 +-
+ frontend/src/pages/verifier/Verify.jsx             |  551 +-
+ ...ig.js.timestamp-1773918857199-d756b916387c7.mjs |   41 +
+ lib/config.dart                                    |    3 +
+ lib/main.dart                                      |  367 +-
+ lib/providers/auth_provider.dart                   |   79 +
+ lib/providers/theme_provider.dart                  |   26 +
+ lib/screens/auth_screen.dart                       |  223 +
+ lib/screens/category_folder_screen.dart            |  230 +
+ lib/screens/custom_folder_detail_screen.dart       |  314 +
+ lib/screens/document_viewer_screen.dart            |  301 +
+ lib/screens/folders_screen.dart                    |  307 +
+ lib/screens/issued_docs_screen.dart                |  423 ++
+ lib/screens/notifications_screen.dart              |  202 +
+ lib/screens/share_screen.dart                      |  276 +
+ lib/screens/upload_screen.dart                     |  274 +
+ lib/screens/wallet_screen.dart                     |  417 ++
+ lib/services/api.dart                              |  204 +
+ lib/widgets/floating_ai.dart                       |  226 +
+ linux/flutter/generated_plugin_registrant.cc       |    8 +
+ linux/flutter/generated_plugins.cmake              |    2 +
+ macos/Flutter/GeneratedPluginRegistrant.swift      |   10 +
+ pubspec.lock                                       |  431 +-
+ pubspec.yaml                                       |   11 +-
+ trustvault.iml                                     |   97 +
+ windows/flutter/generated_plugin_registrant.cc     |    6 +
+ windows/flutter/generated_plugins.cmake            |    2 +
+ 1331 files changed, 48580 insertions(+), 2135 deletions(-)

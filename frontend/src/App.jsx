@@ -9,15 +9,19 @@ import Register from './pages/auth/Register';
 // Shared Components
 import Navbar from './components/Navbar';
 
-// Placeholder Pages (To be created)
-const UserDashboard = () => <div className="p-8 text-center"><h1 className="text-2xl font-bold">User Dashboard Loading...</h1></div>;
-const IssuerDashboard = () => <div className="p-8 text-center"><h1 className="text-2xl font-bold">Issuer Dashboard Loading...</h1></div>;
-const VerifierDashboard = () => <div className="p-8 text-center"><h1 className="text-2xl font-bold">Verifier Dashboard Loading...</h1></div>;
+// Real Dashboard Layouts
+import UserLayout from './pages/user/index';
+import IssuerLayout from './pages/issuer/index';
+import VerifierLayout from './pages/verifier/index';
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useAuth();
   
-  if (loading) return <div>Loading...</div>;
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-slate-400 text-sm animate-pulse">Loading TrustVault...</div>
+    </div>
+  );
   if (!user) return <Navigate to="/login" replace />;
   if (allowedRoles && !allowedRoles.includes(user.role)) {
     return <Navigate to={`/${user.role}`} replace />;
@@ -42,21 +46,21 @@ function App() {
           {/* User Routes */}
           <Route path="/user/*" element={
             <ProtectedRoute allowedRoles={['user']}>
-              <UserDashboard />
+              <UserLayout />
             </ProtectedRoute>
           } />
 
           {/* Issuer Routes */}
           <Route path="/issuer/*" element={
             <ProtectedRoute allowedRoles={['issuer']}>
-              <IssuerDashboard />
+              <IssuerLayout />
             </ProtectedRoute>
           } />
 
           {/* Verifier Routes */}
           <Route path="/verifier/*" element={
             <ProtectedRoute allowedRoles={['verifier']}>
-              <VerifierDashboard />
+              <VerifierLayout />
             </ProtectedRoute>
           } />
           

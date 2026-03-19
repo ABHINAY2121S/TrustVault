@@ -1,122 +1,311 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'providers/auth_provider.dart';
+import 'providers/theme_provider.dart';
+import 'screens/auth_screen.dart';
+import 'screens/wallet_screen.dart';
+import 'screens/issued_docs_screen.dart';
+import 'screens/share_screen.dart';
+import 'screens/notifications_screen.dart';
+import 'screens/upload_screen.dart';
+import 'widgets/floating_ai.dart';
+import 'services/api.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.light,
+  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()..init()),
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+      ],
+      child: const TrustVaultApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class TrustVaultApp extends StatelessWidget {
+  const TrustVaultApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      title: 'TrustVault',
+      debugShowCheckedModeBanner: false,
+      themeMode: themeProvider.themeMode,
+
+      // ── Dark theme (unchanged purple/black) ──────────────────────────────
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF080818),
+        colorScheme: const ColorScheme.dark(
+          primary: Color(0xFF7c3aed),
+          secondary: Color(0xFF6d28d9),
+          surface: Color(0xFF0f0f1f),
+        ),
+        fontFamily: 'Roboto',
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF080818),
+          elevation: 0,
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+
+      // ── Light theme (white/grey/purple accent) ───────────────────────────
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: const Color(0xFFF1F5F9),
+        colorScheme: const ColorScheme.light(
+          primary: Color(0xFF7c3aed),
+          secondary: Color(0xFF6d28d9),
+          surface: Colors.white,
+        ),
+        fontFamily: 'Roboto',
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          titleTextStyle: TextStyle(color: Color(0xFF0F172A), fontSize: 18, fontWeight: FontWeight.w600),
+          iconTheme: IconThemeData(color: Color(0xFF0F172A)),
+        ),
+      ),
+
+      home: const AppGate(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+class AppGate extends StatelessWidget {
+  const AppGate({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  Widget build(BuildContext context) {
+    final auth = context.watch<AuthProvider>();
+    if (!auth.isLoggedIn) return const AuthScreen();
+    return const MainShell();
+  }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class MainShell extends StatefulWidget {
+  const MainShell({super.key});
+  @override
+  State<MainShell> createState() => _MainShellState();
+}
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+class _MainShellState extends State<MainShell> {
+  int _tab = 0;
+  int _pendingCount = 0;
+  Timer? _pollTimer;
+
+  final _pages = const [
+    WalletScreen(),
+    IssuedDocsScreen(),
+    ShareScreen(),
+    NotificationsScreen(),
+  ];
+
+  final _labels = const ['Wallet', 'Issued', 'Share', 'Requests'];
+  final _icons = const [
+    Icons.account_balance_wallet_outlined,
+    Icons.verified_outlined,
+    Icons.qr_code_2_outlined,
+    Icons.notifications_outlined,
+  ];
+  final _activeIcons = const [
+    Icons.account_balance_wallet_rounded,
+    Icons.verified_rounded,
+    Icons.qr_code_2_rounded,
+    Icons.notifications_rounded,
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _startPolling();
+  }
+
+  @override
+  void dispose() {
+    _pollTimer?.cancel();
+    super.dispose();
+  }
+
+  void _startPolling() {
+    _pollPending();
+    _pollTimer = Timer.periodic(const Duration(seconds: 30), (_) => _pollPending());
+  }
+
+  Future<void> _pollPending() async {
+    final requests = await ApiService.getPendingAccessRequests();
+    if (mounted) setState(() => _pendingCount = requests.length);
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    final themeProvider = context.watch<ThemeProvider>();
+    final isDark = themeProvider.isDark;
+    final appBarBg = isDark ? const Color(0xFF080818) : Colors.white;
+    final titleColor = isDark ? Colors.white : const Color(0xFF0F172A);
+    final borderColor = isDark ? const Color(0xFF1e293b) : const Color(0xFFE2E8F0);
+    final navBg = isDark ? const Color(0xFF0a0a1a) : Colors.white;
+
     return Scaffold(
+      backgroundColor: isDark ? const Color(0xFF080818) : const Color(0xFFF1F5F9),
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+        backgroundColor: appBarBg,
+        elevation: 0,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Container(height: 1, color: borderColor),
+        ),
+        title: Row(children: [
+          Container(
+            width: 30, height: 30,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(colors: [Color(0xFF7c3aed), Color(0xFF4f46e5)]),
+              borderRadius: BorderRadius.circular(8),
             ),
-          ],
+            child: const Icon(Icons.shield_rounded, color: Colors.white, size: 16),
+          ),
+          const SizedBox(width: 10),
+          Text('TrustVault', style: TextStyle(color: titleColor, fontWeight: FontWeight.bold, fontSize: 18)),
+        ]),
+        actions: [
+          // ── Theme Toggle ─────────────────────────────────────────────────
+          Container(
+            margin: const EdgeInsets.only(right: 4),
+            decoration: BoxDecoration(
+              color: isDark ? const Color(0xFF1a1a2e) : const Color(0xFFF1F5F9),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: isDark ? const Color(0xFF2d2d4e) : const Color(0xFFE2E8F0)),
+            ),
+            child: Row(mainAxisSize: MainAxisSize.min, children: [
+              // Light mode button
+              GestureDetector(
+                onTap: isDark ? () => themeProvider.toggle() : null,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: !isDark ? const Color(0xFF7c3aed) : Colors.transparent,
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: Row(mainAxisSize: MainAxisSize.min, children: [
+                    Icon(Icons.wb_sunny_rounded, size: 14, color: !isDark ? Colors.white : const Color(0xFF64748b)),
+                    if (!isDark) ...[
+                      const SizedBox(width: 4),
+                      const Text('Light', style: TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600)),
+                    ],
+                  ]),
+                ),
+              ),
+              // Dark mode button
+              GestureDetector(
+                onTap: !isDark ? () => themeProvider.toggle() : null,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: isDark ? const Color(0xFF7c3aed) : Colors.transparent,
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: Row(mainAxisSize: MainAxisSize.min, children: [
+                    Icon(Icons.dark_mode_rounded, size: 14, color: isDark ? Colors.white : const Color(0xFF64748b)),
+                    if (isDark) ...[
+                      const SizedBox(width: 4),
+                      const Text('Dark', style: TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w600)),
+                    ],
+                  ]),
+                ),
+              ),
+            ]),
+          ),
+          // ── Upload ───────────────────────────────────────────────────────
+          IconButton(
+            icon: const Icon(Icons.upload_file_outlined, color: Color(0xFF7c3aed)),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const UploadScreen())),
+            tooltip: 'Upload document',
+          ),
+          // ── Logout ───────────────────────────────────────────────────────
+          IconButton(
+            icon: Icon(Icons.logout_outlined, color: isDark ? const Color(0xFF475569) : const Color(0xFF94a3b8)),
+            onPressed: () => context.read<AuthProvider>().logout(),
+            tooltip: 'Logout',
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          IndexedStack(index: _tab, children: _pages),
+          const FloatingAIWidget(),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: navBg,
+          border: Border(top: BorderSide(color: borderColor)),
+          boxShadow: isDark ? null : [BoxShadow(color: Colors.black.withOpacity(0.06), blurRadius: 8, offset: const Offset(0, -2))],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(4, (i) {
+                final isActive = _tab == i;
+                final hasNotif = i == 3 && _pendingCount > 0;
+                final activeColor = const Color(0xFF7c3aed);
+                final inactiveColor = isDark ? const Color(0xFF475569) : const Color(0xFF94a3b8);
+
+                return GestureDetector(
+                  onTap: () { setState(() => _tab = i); if (i == 3) _pollPending(); },
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: isActive ? activeColor.withOpacity(0.12) : Colors.transparent,
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      Stack(clipBehavior: Clip.none, children: [
+                        Icon(
+                          isActive ? _activeIcons[i] : _icons[i],
+                          color: isActive ? activeColor : inactiveColor,
+                          size: 22,
+                        ),
+                        if (hasNotif)
+                          Positioned(
+                            top: -4, right: -4,
+                            child: Container(
+                              width: 16, height: 16,
+                              decoration: const BoxDecoration(color: Color(0xFFef4444), shape: BoxShape.circle),
+                              child: Center(child: Text('$_pendingCount', style: const TextStyle(color: Colors.white, fontSize: 9, fontWeight: FontWeight.bold))),
+                            ),
+                          ),
+                      ]),
+                      const SizedBox(height: 3),
+                      Text(_labels[i], style: TextStyle(
+                        color: isActive ? activeColor : inactiveColor,
+                        fontSize: 11,
+                        fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
+                      )),
+                    ]),
+                  ),
+                );
+              }),
+            ),
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
